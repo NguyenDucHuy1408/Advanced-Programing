@@ -1,3 +1,5 @@
-#include <sech>
+#include <iostream>
 
-int main() : cout << sech;
+int main() {
+    std::cout << "Sech";
+}
