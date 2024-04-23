@@ -1,0 +1,58 @@
+# depslib dependency file v1.0
+1713842847 source:d:\it\ltnc\btl\baseobject.cpp
+	"BaseObject.h"
+
+1588581640 d:\it\ltnc\btl\baseobject.h
+	"CommonFunc.h"
+
+1588583221 d:\it\ltnc\btl\commonfunc.h
+	<windows.h>
+	<vector>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"TextObject.h"
+	"BaseObject.h"
+
+1553398736 d:\it\ltnc\btl\textobject.h
+	"CommonFunc.h"
+
+1713842486 source:d:\it\ltnc\btl\blockobject.cpp
+	"BlockObject.h"
+
+1588582033 d:\it\ltnc\btl\blockobject.h
+	"Geometric.h"
+
+1588582011 d:\it\ltnc\btl\geometric.h
+	"CommonFunc.h"
+
+1588578017 source:d:\it\ltnc\btl\commonfunc.cpp
+	"CommonFunc.h"
+
+1583574932 source:d:\it\ltnc\btl\geometric.cpp
+	"Geometric.h"
+
+1566651603 source:d:\it\ltnc\btl\imptimer.cpp
+	"ImpTimer.h"
+	"CommonFunc.h"
+
+1566651603 d:\it\ltnc\btl\imptimer.h
+
+1713842770 source:d:\it\ltnc\btl\main.cpp
+	"CommonFunc.h"
+	"PlayerObject.h"
+	"ImpTimer.h"
+	"BlockObject.h"
+	"Geometric.h"
+
+1588581968 d:\it\ltnc\btl\playerobject.h
+	"CommonFunc.h"
+
+1588578224 source:d:\it\ltnc\btl\playerobject.cpp
+	"PlayerObject.h"
+
+1552834363 source:d:\it\ltnc\btl\textobject.cpp
+	"TextObject.h"
+
