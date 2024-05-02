@@ -67,3 +67,99 @@
 1713842486 source:d:\it\ltnc\btl\blockobject.cpp
 	"BlockObject.h"
 
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\baseobject.cpp
+	"BaseObject.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\baseobject.h
+	"CommonFunc.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\commonfunc.h
+	<windows.h>
+	<vector>
+	<string>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+	"TextObject.h"
+	"BaseObject.h"
+
+1713857781 d:\codeblocks\ltnc\advanced-programing\btl\textobject.h
+	"CommonFunc.h"
+
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\blockobject.cpp
+	"BlockObject.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\blockobject.h
+	"Geometric.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\geometric.h
+	"CommonFunc.h"
+
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\commonfunc.cpp
+	"CommonFunc.h"
+
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\geometric.cpp
+	"Geometric.h"
+
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\imptimer.cpp
+	"ImpTimer.h"
+	"CommonFunc.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
+
+1714034605 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+	"defs.h"
+	"common.h"
+	"sprite.h"
+	"move.h"
+
+1713857780 d:\codeblocks\ltnc\advanced-programing\btl\playerobject.h
+	"CommonFunc.h"
+
+1713857780 source:d:\codeblocks\ltnc\advanced-programing\btl\playerobject.cpp
+	"PlayerObject.h"
+
+1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
+	"TextObject.h"
+
+1714034212 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+	"game.h"
+
+1714029257 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+	"defs.h"
+
+1714029702 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
+	"common.h"
+
+1714029151 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+	"defs.h"
+	"sprite.h"
+	"map.h"
+	"game.h"
+
+1714034154 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+	<bits/stdc++.h>
+	<SDL.h>
+	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
+
+1713971539 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
+	"defs.h"
+
+1713971549 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+	"sprite.h"
+
+1714018495 d:\codeblocks\ltnc\advanced-programing\btl\map.h
+	"defs.h"
+
+1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
+	"map.h"
+
+1714023652 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+	"move.h"
+
+1714023652 d:\codeblocks\ltnc\advanced-programing\btl\move.h
+	"defs.h"
+
