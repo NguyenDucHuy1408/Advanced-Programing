@@ -11,6 +11,7 @@ using namespace std;
 #define BIRD_SPRITE_FILE "img/bird_sprite.png"
 #define BACKGROUND_FILE "img/forest.jpg"
 #define MONSTER_FILE "img/Du_long.png"
+#define NHACNEN_FILE "sound/nhac_nen.mp3"
 #define SPEED 5
 
 const int SCREEN_WIDTH = 800;

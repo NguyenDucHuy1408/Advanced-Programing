@@ -86,11 +86,12 @@ void Common::presentScene()
     SDL_RenderPresent(renderer);
 }
 
-void Common::renderSprite(int x, int y, const Sprite &sprite)
+SDL_Rect Common::renderSprite(int x, int y, const Sprite &sprite)
 {
     const SDL_Rect *clip = sprite.getCurrentClip();
     SDL_Rect renderQuad = {x, y, clip -> w * .5, clip -> h * .5};
     SDL_RenderCopy(renderer, sprite.texture, clip, &renderQuad);
+    return renderQuad;
 }
 
 void Common::renderScrollingBackground(const ScrollingBackground &background)
@@ -99,9 +100,13 @@ void Common::renderScrollingBackground(const ScrollingBackground &background)
     renderTexture(background.texture, background.scrollingOffset - background.width, 0);
 }
 
-void Common::renderMonster(const Monster &monster)
+SDL_Rect Common::renderMonster(const Monster &monster)
 {
     renderTexture(monster.texture, monster.x, monster.y);
+    int w, h;
+    SDL_QueryTexture(monster.texture, NULL, NULL, &w, &h);
+    SDL_Rect hihi = {monster.x, monster.y, w, h};
+    return hihi;
 }
 
 void Common::quit()

@@ -108,11 +108,12 @@
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
 
-1714034605 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+1714730904 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
 	"defs.h"
 	"common.h"
 	"sprite.h"
 	"move.h"
+	"collision.h"
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\playerobject.h
 	"CommonFunc.h"
@@ -129,10 +130,10 @@
 1714029257 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"defs.h"
 
-1714029702 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
+1714731032 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
-1714029151 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+1714730854 d:\codeblocks\ltnc\advanced-programing\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
@@ -157,9 +158,12 @@
 1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
 	"map.h"
 
-1714023652 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+1714730141 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
 	"move.h"
 
-1714023652 d:\codeblocks\ltnc\advanced-programing\btl\move.h
+1714730147 d:\codeblocks\ltnc\advanced-programing\btl\move.h
+	"defs.h"
+
+1714730833 d:\codeblocks\ltnc\advanced-programing\btl\collision.h
 	"defs.h"
 

@@ -2,6 +2,8 @@
 #include "common.h"
 #include "sprite.h"
 #include "move.h"
+#include "collision.h"
+#include "sound.h"
 
 void waitUntilKeyPressed()
 {
@@ -36,6 +38,7 @@ int main(int argc, char *argv[])
     bool quit = false;
     SDL_Event e;
     deque<Monster> dq = {monster};
+    deque<SDL_Rect> dpr;
     int time = SDL_GetTicks();
     while(!quit) {
         hehe.prepareScene(NULL);
@@ -45,20 +48,7 @@ int main(int argc, char *argv[])
         background.scroll(1);
         hehe.renderScrollingBackground(background);
 
-        for(int i = 0; i < dq.size(); i++) {
-            hehe.renderMonster(dq[i]);
-            dq[i].moveMonster();
-        }
 
-        if(SDL_GetTicks() - time >= 1000) {
-            time = SDL_GetTicks();
-            Monster hihi;
-            hihi.setMonster(textureMonster);
-            dq.push_back(hihi);
-        }
-
-        if(dq[0].x <= -100)
-            dq.pop_front();
         while(SDL_PollEvent(&e) != 0)
             if(e.type == SDL_QUIT)
                 quit = true;
@@ -71,8 +61,24 @@ int main(int argc, char *argv[])
         if(currentKeyStates[SDL_SCANCODE_RIGHT]) mouse.turnEast();
 
         bird.tick();
-        hehe.renderSprite(mouse.x, mouse.y, bird);
+        SDL_Rect player = hehe.renderSprite(mouse.x, mouse.y, bird);
         mouse.move();
+
+        for(int i = 0; i < dq.size(); i++) {
+            SDL_Rect mst = hehe.renderMonster(dq[i]);
+            if(isOverLap(player, mst)) quit = true;
+            dq[i].moveMonster();
+        }
+
+        if(SDL_GetTicks() - time >= 500) {
+            time = SDL_GetTicks();
+            Monster hihi;
+            hihi.setMonster(textureMonster);
+            dq.push_back(hihi);
+        }
+
+        if(dq[0].x <= -100)
+            dq.pop_front();
         hehe.presentScene();
 
         SDL_Delay(10);
