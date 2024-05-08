@@ -38,11 +38,14 @@ void Common::init()
     //Dặt kích thước logic cho renderer, giúp đơn giản hóa việc vẽ đồ họa khi màn hình có độ phân giải khác nhau.
     SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
     //SDL_SetRenderDrawColor(renderer, 255, 0, 0, 255);
+
+    if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
+        logErrorAndExit("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
 }
 
 SDL_Texture *Common::loadTexture(const char *file)
 {
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading %s", file);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading img: %s", file);
 
     SDL_Texture *texture = IMG_LoadTexture(renderer, file);
     if(texture == nullptr)

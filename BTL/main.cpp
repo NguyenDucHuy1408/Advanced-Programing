@@ -23,6 +23,11 @@ int main(int argc, char *argv[])
     Common hehe;
     hehe.init();
 
+    Sound sound;
+    sound.loadMusic(NHACNEN_FILE);
+    sound.loadChunk(NHACENDGAME_FILE);
+    sound.playMusic();
+
     Sprite bird;
     bird.init(hehe.loadTexture(BIRD_SPRITE_FILE), BIRD_FRAMES, BIRD_CLIPS);
 
@@ -66,11 +71,15 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i < dq.size(); i++) {
             SDL_Rect mst = hehe.renderMonster(dq[i]);
-            if(isOverLap(player, mst)) quit = true;
+            if(isOverLap(player, mst)) {
+                sound.playChunk();
+                SDL_Delay(1000);
+                quit = true;
+            }
             dq[i].moveMonster();
         }
 
-        if(SDL_GetTicks() - time >= 500) {
+        if(SDL_GetTicks() - time >= 1000) {
             time = SDL_GetTicks();
             Monster hihi;
             hihi.setMonster(textureMonster);
