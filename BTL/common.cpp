@@ -41,6 +41,8 @@ void Common::init()
 
     if(Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) < 0)
         logErrorAndExit("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
+
+    Mix_Volume(-1, 128);
 }
 
 SDL_Texture *Common::loadTexture(const char *file)

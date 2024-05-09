@@ -72,6 +72,7 @@ int main(int argc, char *argv[])
         for(int i = 0; i < dq.size(); i++) {
             SDL_Rect mst = hehe.renderMonster(dq[i]);
             if(isOverLap(player, mst)) {
+                Mix_PauseMusic();
                 sound.playChunk();
                 SDL_Delay(1000);
                 quit = true;
