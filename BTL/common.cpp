@@ -43,6 +43,9 @@ void Common::init()
         logErrorAndExit("SDL_mixer could not initialize! SDL_mixer Error: %s\n", Mix_GetError());
 
     Mix_Volume(-1, 128);
+
+    if (TTF_Init() == -1)
+        logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: ", TTF_GetError());
 }
 
 SDL_Texture *Common::loadTexture(const char *file)
@@ -112,6 +115,34 @@ SDL_Rect Common::renderMonster(const Monster &monster)
     SDL_QueryTexture(monster.texture, NULL, NULL, &w, &h);
     SDL_Rect hihi = {monster.x, monster.y, w, h};
     return hihi;
+}
+
+TTF_Font* Common::loadFont(const char* path, int size)
+{
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading font: %s", path);
+
+    TTF_Font* font = TTF_OpenFont(path, size);
+    if(font == NULL)
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Could not open: %s", TTF_GetError());
+
+    return font;
+}
+
+SDL_Texture* Common::fontTexture(const char* text, TTF_Font* font, SDL_Color textColor)
+{
+    if(font == NULL) return NULL;
+
+    SDL_Surface* textSurface = TTF_RenderText_Solid(font, text, textColor);
+    if(textSurface == NULL) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Surface error: %s", TTF_GetError());
+        return NULL;
+    }
+
+    SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, textSurface);
+    if(texture == NULL)
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Texture error: %s", SDL_GetError());
+
+    return texture;
 }
 
 void Common::quit()

@@ -8,18 +8,35 @@ class Common
 {
 public:
     Common();
+
     ~Common();
+
     void logErrorAndExit(const char *msg, const char *error);
+
     void init();
-    SDL_Texture *loadTexture(const char *file);
+
+    SDL_Texture* loadTexture(const char *file);
+
     void renderTexture(SDL_Texture *texture, int x, int y);
+
     void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
+
     void prepareScene(SDL_Texture *background);
+
     void presentScene();
+
     SDL_Rect renderSprite(int x, int y, const Sprite &sprite);
+
     void renderScrollingBackground(const ScrollingBackground &background);
+
     SDL_Rect renderMonster(const Monster &monster);
+
+    TTF_Font* loadFont(const char* path, int size);
+
+    SDL_Texture* fontTexture(const char* text, TTF_Font* font, SDL_Color textColor);
+
     void quit();
+
 private:
     SDL_Window *window;
     SDL_Renderer *renderer;

@@ -134,7 +134,7 @@
 1715154664 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
-1714730854 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+1715219338 d:\codeblocks\ltnc\advanced-programing\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
@@ -159,10 +159,10 @@
 1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
 	"map.h"
 
-1714730141 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+1715217250 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
 	"move.h"
 
-1714730147 d:\codeblocks\ltnc\advanced-programing\btl\move.h
+1715216042 d:\codeblocks\ltnc\advanced-programing\btl\move.h
 	"defs.h"
 
 1714730833 d:\codeblocks\ltnc\advanced-programing\btl\collision.h
