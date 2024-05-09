@@ -13,6 +13,7 @@ using namespace std;
 #define MONSTER_FILE "img/Du_long.png"
 #define NHACNEN_FILE "sound/nhac_nen.mp3"
 #define NHACENDGAME_FILE "sound/nhac_endgame3.wav"
+#define FONT_FILE "text/text.ttf"
 #define SPEED 5
 
 const int SCREEN_WIDTH = 800;

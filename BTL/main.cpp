@@ -4,6 +4,7 @@
 #include "move.h"
 #include "collision.h"
 #include "sound.h"
+#include "menu.h"
 
 void waitUntilKeyPressed()
 {
@@ -22,6 +23,7 @@ int main(int argc, char *argv[])
     srand(time(0));
     Common hehe;
     hehe.init();
+    TTF_Font* font = hehe.loadFont(FONT_FILE, 20);
 
     Sound sound;
     sound.loadMusic(NHACNEN_FILE);
@@ -40,11 +42,16 @@ int main(int argc, char *argv[])
 
     Move mouse;
 
+    Menu menu;
+
     bool quit = false;
     SDL_Event e;
+
     deque<Monster> dq = {monster};
     deque<SDL_Rect> dpr;
+
     int time = SDL_GetTicks();
+    int cnt = 0;
     while(!quit) {
         hehe.prepareScene(NULL);
 
@@ -52,7 +59,6 @@ int main(int argc, char *argv[])
 
         background.scroll(1);
         hehe.renderScrollingBackground(background);
-
 
         while(SDL_PollEvent(&e) != 0)
             if(e.type == SDL_QUIT)
@@ -87,8 +93,19 @@ int main(int argc, char *argv[])
             dq.push_back(hihi);
         }
 
-        if(dq[0].x <= -100)
+        if(dq[0].x <= -100) {
             dq.pop_front();
+            cnt++;
+        }
+
+        menu.randColor();
+        SDL_Color color = {menu.r, menu.g, menu.b, 255};
+        string str = "SCORE: ";
+        str += to_string(cnt);
+        const char* s = str.c_str();
+        SDL_Texture* score = hehe.fontTexture(s, font, color);
+        hehe.renderTexture(score, 10, 10);
+
         hehe.presentScene();
 
         SDL_Delay(10);
