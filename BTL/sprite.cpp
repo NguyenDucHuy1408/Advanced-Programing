@@ -4,6 +4,8 @@ Sprite::Sprite()
 {
     texture = NULL;
     currentFrame = 0;
+    x = SCREEN_WIDTH;
+    y = rand() % (SCREEN_HEIGHT - 150);
 }
 
 Sprite::~Sprite()
@@ -33,4 +35,15 @@ void Sprite::tick()
 const SDL_Rect *Sprite::getCurrentClip() const
 {
     return &(clips[currentFrame]);
+}
+
+void Sprite::randMonster()
+{
+    x = SCREEN_WIDTH;
+    y = rand() % (SCREEN_HEIGHT - 150);
+}
+
+void Sprite::moveMonster()
+{
+    x -= SPEED_MONSTER;
 }

@@ -19,7 +19,7 @@ void Monster::setMonster(SDL_Texture *_texture)
 
 void Monster::moveMonster()
 {
-    x -= SPEED;
+    x -= SPEED_MONSTER;
 }
 
 void Monster::randMonster()

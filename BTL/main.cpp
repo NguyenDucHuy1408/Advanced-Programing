@@ -33,14 +33,12 @@ int main(int argc, char *argv[])
     Sprite bird;
     bird.init(common.loadTexture(BIRD_SPRITE_FILE), BIRD_FRAMES, BIRD_CLIPS);
 
+    SDL_Texture* ragnarokTexture = common.loadTexture(RAGNAROK_SPRITE_FILE);
     Sprite ragnarok;
-    ragnarok.init(common.loadTexture(RAGNAROK_SPRITE_FILE), RAGNAROK_FRAMES, RAGNAROK_CLIPS);
+    ragnarok.init(ragnarokTexture, RAGNAROK_FRAMES, RAGNAROK_CLIPS);
 
     ScrollingBackground background;
     background.setTexture(common.loadTexture(BACKGROUND_FILE));
-
-    Monster monster;
-    monster.setMonster(ragnarok.texture);
 
     Move mouse;
 
@@ -49,7 +47,7 @@ int main(int argc, char *argv[])
     bool quit = false;
     SDL_Event e;
 
-    deque<Monster> dq = {monster};
+    deque<Sprite> dq = {ragnarok};
     deque<SDL_Rect> dpr;
 
     int time = SDL_GetTicks();
@@ -59,7 +57,7 @@ int main(int argc, char *argv[])
 
         mouse.update();
 
-        background.scroll(1);
+        background.scroll(SCROLL_BACKGROUND);
         common.renderScrollingBackground(background);
 
         while(SDL_PollEvent(&e) != 0)
@@ -78,21 +76,21 @@ int main(int argc, char *argv[])
         mouse.move();
 
         for(int i = 0; i < dq.size(); i++) {
-            SDL_Rect mst = common.renderMonster(dq[i]);
-            ragnarok.tick();
+            SDL_Rect mst = common.renderSprite(dq[i].x, dq[i].y, dq[i]);
+            dq[i].tick();
             if(isOverLap(player, mst)) {
                 Mix_PauseMusic();
                 sound.playChunk();
                 SDL_Delay(1000);
                 quit = true;
-            }
+            }//SDL_Delay(10);
             dq[i].moveMonster();
         }
 
         if(SDL_GetTicks() - time >= 1000) {
             time = SDL_GetTicks();
-            Monster hihi;
-            hihi.setMonster(ragnarok.texture);
+            Sprite hihi;
+            hihi.init(ragnarokTexture, RAGNAROK_FRAMES, RAGNAROK_CLIPS);
             dq.push_back(hihi);
         }
 
@@ -102,7 +100,7 @@ int main(int argc, char *argv[])
         }
 
         menu.randColor();
-        SDL_Color color = {menu.r, menu.g, menu.b, 255};
+        SDL_Color color = {menu.r, menu.g, menu.b, 0};
         string str = "SCORE: ";
         str += to_string(cnt);
         const char* s = str.c_str();
@@ -111,7 +109,7 @@ int main(int argc, char *argv[])
 
         common.presentScene();
 
-        SDL_Delay(10);
+        SDL_Delay(20);
     }
     common.quit();
     return 0;

@@ -6,7 +6,7 @@ Move::Move()
     y = SCREEN_HEIGHT / 2 - 100;
     dx = 0;
     dy = 0;
-    speed = SPEED;
+    speed = SPEED_BIRD;
 }
 
 Move::~Move()

@@ -14,7 +14,13 @@ public:
 
     const SDL_Rect *getCurrentClip() const;
 
+    void randMonster();
+
+    void moveMonster();
+
     SDL_Texture *texture;
+
+    int x, y;
 
 private:
     vector<SDL_Rect> clips;
