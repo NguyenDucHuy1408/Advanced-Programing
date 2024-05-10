@@ -9,6 +9,7 @@ using namespace std;
 
 #define WINDOW_TITLE "Game cua Huy"
 #define BIRD_SPRITE_FILE "img/bird_sprite.png"
+#define RAGNAROK_SPRITE_FILE "img/ragnarok.png"
 #define BACKGROUND_FILE "img/forest.jpg"
 #define MONSTER_FILE "img/Du_long.png"
 #define NHACNEN_FILE "sound/nhac_nen.mp3"
@@ -37,4 +38,16 @@ const int BIRD_CLIPS[][4] = {
     {364, 340, 182, 168},
     {547, 340, 182, 168},
 };
-const int BIRD_FRAMES = sizeof(BIRD_CLIPS)/sizeof(int)/4;
+const int BIRD_FRAMES = sizeof(BIRD_CLIPS) / sizeof(int) / 4;
+
+const int RAGNAROK_CLIPS[][4] = {
+    {0, 0, 130, 140},
+    {130, 0, 130, 140},
+    {260, 0, 130, 140},
+    {390, 0, 130, 140},
+    {520, 0, 130, 140},
+    {650, 0, 130, 140},
+    {780, 0, 130, 140},
+    {910, 0, 130, 140},
+};
+const int RAGNAROK_FRAMES = sizeof(RAGNAROK_CLIPS) / sizeof(int) / 4;

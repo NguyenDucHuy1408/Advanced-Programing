@@ -21,9 +21,9 @@ void waitUntilKeyPressed()
 int main(int argc, char *argv[])
 {
     srand(time(0));
-    Common hehe;
-    hehe.init();
-    TTF_Font* font = hehe.loadFont(FONT_FILE, 20);
+    Common common;
+    common.init();
+    TTF_Font* font = common.loadFont(FONT_FILE, 20);
 
     Sound sound;
     sound.loadMusic(NHACNEN_FILE);
@@ -31,14 +31,16 @@ int main(int argc, char *argv[])
     sound.playMusic();
 
     Sprite bird;
-    bird.init(hehe.loadTexture(BIRD_SPRITE_FILE), BIRD_FRAMES, BIRD_CLIPS);
+    bird.init(common.loadTexture(BIRD_SPRITE_FILE), BIRD_FRAMES, BIRD_CLIPS);
+
+    Sprite ragnarok;
+    ragnarok.init(common.loadTexture(RAGNAROK_SPRITE_FILE), RAGNAROK_FRAMES, RAGNAROK_CLIPS);
 
     ScrollingBackground background;
-    background.setTexture(hehe.loadTexture(BACKGROUND_FILE));
+    background.setTexture(common.loadTexture(BACKGROUND_FILE));
 
     Monster monster;
-    SDL_Texture *textureMonster = hehe.loadTexture(MONSTER_FILE);
-    monster.setMonster(textureMonster);
+    monster.setMonster(ragnarok.texture);
 
     Move mouse;
 
@@ -53,12 +55,12 @@ int main(int argc, char *argv[])
     int time = SDL_GetTicks();
     int cnt = 0;
     while(!quit) {
-        hehe.prepareScene(NULL);
+        common.prepareScene(NULL);
 
         mouse.update();
 
         background.scroll(1);
-        hehe.renderScrollingBackground(background);
+        common.renderScrollingBackground(background);
 
         while(SDL_PollEvent(&e) != 0)
             if(e.type == SDL_QUIT)
@@ -72,11 +74,12 @@ int main(int argc, char *argv[])
         if(currentKeyStates[SDL_SCANCODE_RIGHT]) mouse.turnEast();
 
         bird.tick();
-        SDL_Rect player = hehe.renderSprite(mouse.x, mouse.y, bird);
+        SDL_Rect player = common.renderSprite(mouse.x, mouse.y, bird);
         mouse.move();
 
         for(int i = 0; i < dq.size(); i++) {
-            SDL_Rect mst = hehe.renderMonster(dq[i]);
+            SDL_Rect mst = common.renderMonster(dq[i]);
+            ragnarok.tick();
             if(isOverLap(player, mst)) {
                 Mix_PauseMusic();
                 sound.playChunk();
@@ -89,7 +92,7 @@ int main(int argc, char *argv[])
         if(SDL_GetTicks() - time >= 1000) {
             time = SDL_GetTicks();
             Monster hihi;
-            hihi.setMonster(textureMonster);
+            hihi.setMonster(ragnarok.texture);
             dq.push_back(hihi);
         }
 
@@ -103,13 +106,13 @@ int main(int argc, char *argv[])
         string str = "SCORE: ";
         str += to_string(cnt);
         const char* s = str.c_str();
-        SDL_Texture* score = hehe.fontTexture(s, font, color);
-        hehe.renderTexture(score, 10, 10);
+        SDL_Texture* score = common.fontTexture(s, font, color);
+        common.renderTexture(score, 10, 10);
 
-        hehe.presentScene();
+        common.presentScene();
 
         SDL_Delay(10);
     }
-    hehe.quit();
+    common.quit();
     return 0;
 }

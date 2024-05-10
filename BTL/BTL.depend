@@ -108,7 +108,7 @@
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
 
-1715222876 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+1715254910 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
 	"defs.h"
 	"common.h"
 	"sprite.h"
@@ -129,7 +129,7 @@
 1714034212 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
-1714029257 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+1715254910 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"defs.h"
 
 1715219338 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
@@ -141,17 +141,17 @@
 	"map.h"
 	"game.h"
 
-1715249265 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1715253714 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1713971539 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
+1715254910 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
 	"defs.h"
 
-1713971549 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+1715254910 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
 	"sprite.h"
 
 1714018495 d:\codeblocks\ltnc\advanced-programing\btl\map.h

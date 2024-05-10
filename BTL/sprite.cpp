@@ -11,7 +11,7 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(SDL_Texture *_texture, int frames, const int _clips[][4])
+void Sprite::init(SDL_Texture* _texture, int frames, const int _clips[][4])
 {
     texture = _texture;
 
