@@ -72,11 +72,13 @@ int main(int argc, char *argv[])
         if(currentKeyStates[SDL_SCANCODE_RIGHT]) mouse.turnEast();
 
         bird.tick();
-        SDL_Rect player = common.renderSprite(mouse.x, mouse.y, bird);
+        SDL_Rect birdRect = common.renderSprite(mouse.x, mouse.y, bird);
+        SDL_Rect player = {birdRect.x + 30, birdRect.y + 30, 40, 40};
         mouse.move();
 
         for(int i = 0; i < dq.size(); i++) {
             SDL_Rect mst = common.renderSprite(dq[i].x, dq[i].y, dq[i]);
+            //
             dq[i].tick();
             if(isOverLap(player, mst)) {
                 Mix_PauseMusic();

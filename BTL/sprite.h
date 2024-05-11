@@ -24,5 +24,8 @@ public:
 
 private:
     vector<SDL_Rect> clips;
+
     int currentFrame;
+
+    int mPosX, mPosY;
 };

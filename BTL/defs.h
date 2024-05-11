@@ -41,6 +41,14 @@ const int BIRD_CLIPS[][4] = {
     {273, 170, 90, 90},
 };
 const int BIRD_FRAMES = sizeof(BIRD_CLIPS) / sizeof(int) / 4;
+/*
+const vector<vector<SDL_Rect>> COLLIDERS_BIRD = {
+    {{{46, 31, 10, 1}, {43, 32, 16, 1}, {}
+
+    }
+};
+*/
+
 
 const int RAGNAROK_CLIPS[][4] = {
     {3, 5, 63, 63}, {3, 5, 63, 63},
