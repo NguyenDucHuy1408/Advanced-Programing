@@ -97,7 +97,7 @@ void Common::presentScene()
 SDL_Rect Common::renderSprite(int x, int y, const Sprite &sprite)
 {
     const SDL_Rect *clip = sprite.getCurrentClip();
-    SDL_Rect renderQuad = {x, y, clip -> w * .5, clip -> h * .5};
+    SDL_Rect renderQuad = {x, y, clip -> w, clip -> h};
     SDL_RenderCopy(renderer, sprite.texture, clip, &renderQuad);
     return renderQuad;
 }

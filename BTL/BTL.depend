@@ -126,13 +126,13 @@
 1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
 	"TextObject.h"
 
-1715329039 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+1715332520 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
 1715254910 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"defs.h"
 
-1715219338 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
+1715414806 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
 1715219338 d:\codeblocks\ltnc\advanced-programing\btl\common.h
@@ -141,7 +141,7 @@
 	"map.h"
 	"game.h"
 
-1715332496 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1715418992 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -151,7 +151,7 @@
 1715322695 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
 	"defs.h"
 
-1715329039 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+1715332520 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
 	"sprite.h"
 
 1714018495 d:\codeblocks\ltnc\advanced-programing\btl\map.h
