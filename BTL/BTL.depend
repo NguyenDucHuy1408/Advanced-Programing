@@ -108,7 +108,7 @@
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
 
-1715429998 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+1715516549 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
 	"defs.h"
 	"common.h"
 	"sprite.h"
@@ -141,7 +141,7 @@
 	"map.h"
 	"game.h"
 
-1715428409 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1715515694 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>

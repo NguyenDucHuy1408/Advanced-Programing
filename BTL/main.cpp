@@ -52,6 +52,7 @@ int main(int argc, char *argv[])
 
     int time = SDL_GetTicks();
     int cnt = 0;
+    int time2 = 500;
     while(!quit) {
         common.prepareScene(NULL);
 
@@ -78,18 +79,19 @@ int main(int argc, char *argv[])
 
         for(int i = 0; i < dq.size(); i++) {
             SDL_Rect mst = common.renderSprite(dq[i].x, dq[i].y, dq[i]);
+            SDL_Rect mst2 = {mst.x + 10, mst.y + 28, 40, 35};
             //
             dq[i].tick();
-            if(isOverLap(player, mst)) {
+            if(isOverLap(player, mst2)) {
                 Mix_PauseMusic();
                 sound.playChunk();
-                SDL_Delay(1000);
+                SDL_Delay(500);
                 quit = true;
-            }//SDL_Delay(10);
+            }
             dq[i].moveMonster();
         }
 
-        if(SDL_GetTicks() - time >= 1000) {
+        if(SDL_GetTicks() - time >= time2) {
             time = SDL_GetTicks();
             Sprite hihi;
             hihi.init(ragnarokTexture, RAGNAROK_FRAMES, RAGNAROK_CLIPS);
@@ -99,6 +101,7 @@ int main(int argc, char *argv[])
         if(dq[0].x <= -100) {
             dq.pop_front();
             cnt++;
+            time2--;
         }
 
         menu.randColor();
@@ -113,6 +116,9 @@ int main(int argc, char *argv[])
 
         SDL_Delay(20);
     }
+    SDL_DestroyTexture(ragnarokTexture);
+    ragnarokTexture == NULL;
+
     common.quit();
     return 0;
 }
