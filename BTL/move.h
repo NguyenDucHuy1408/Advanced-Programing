@@ -20,6 +20,8 @@ public:
 
     void turnEast();
 
+    void checkEvent();
+
     bool corner();
 
     int x, y;

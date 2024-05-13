@@ -8,6 +8,7 @@
 using namespace std;
 
 #define WINDOW_TITLE "Game cua Huy"
+#define MENU_FILE "img/menu.png"
 #define BIRD_SPRITE_FILE "img/bird_sprite.png"
 #define RAGNAROK_SPRITE_FILE "img/ragnarok_sprite.png"
 #define BACKGROUND_FILE "img/forest.jpg"

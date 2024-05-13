@@ -57,3 +57,13 @@ void Move::turnWest()
     dx = -speed;
     dy = 0;
 }
+
+void Move::checkEvent()
+{
+     const Uint8 *currentKeyStates = SDL_GetKeyboardState(NULL);
+
+    if(currentKeyStates[SDL_SCANCODE_UP]) turnNorth();
+    if(currentKeyStates[SDL_SCANCODE_DOWN]) turnSouth();
+    if(currentKeyStates[SDL_SCANCODE_LEFT]) turnWest();
+    if(currentKeyStates[SDL_SCANCODE_RIGHT]) turnEast();
+}

@@ -2,7 +2,6 @@
 #include "defs.h"
 #include "sprite.h"
 #include "map.h"
-#include "game.h"
 
 class Common
 {
@@ -15,29 +14,30 @@ public:
 
     void init();
 
-    SDL_Texture* loadTexture(const char *file);
+    static SDL_Texture* loadTexture(const char *file);
 
-    void renderTexture(SDL_Texture *texture, int x, int y);
+    static void renderTexture(SDL_Texture *texture, int x, int y);
+
+    static void renderTexture(SDL_Texture* texture);
 
     void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
 
     void prepareScene(SDL_Texture *background);
 
-    void presentScene();
+    static void presentScene();
 
     SDL_Rect renderSprite(int x, int y, const Sprite &sprite);
 
     void renderScrollingBackground(const ScrollingBackground &background);
 
-    SDL_Rect renderMonster(const Monster &monster);
-
     TTF_Font* loadFont(const char* path, int size);
 
     SDL_Texture* fontTexture(const char* text, TTF_Font* font, SDL_Color textColor);
+
+    static SDL_Renderer *renderer;
 
     void quit();
 
 private:
     SDL_Window *window;
-    SDL_Renderer *renderer;
 };

@@ -1,5 +1,7 @@
 #include "common.h"
 
+SDL_Renderer* Common::renderer = nullptr;
+
 Common::Common()
 {
     window = NULL;
@@ -69,6 +71,11 @@ void Common::renderTexture(SDL_Texture *texture, int x, int y)
     SDL_RenderCopy(renderer, texture, NULL, &dest);
 }
 
+void Common::renderTexture(SDL_Texture *texture)
+{
+    SDL_RenderCopy(renderer, texture, NULL, NULL);
+}
+
 void Common::blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y)
 {
 
@@ -106,15 +113,6 @@ void Common::renderScrollingBackground(const ScrollingBackground &background)
 {
     renderTexture(background.texture, background.scrollingOffset, 0);
     renderTexture(background.texture, background.scrollingOffset - background.width, 0);
-}
-
-SDL_Rect Common::renderMonster(const Monster &monster)
-{
-    renderTexture(monster.texture, monster.x, monster.y);
-    int w, h;
-    SDL_QueryTexture(monster.texture, NULL, NULL, &w, &h);
-    SDL_Rect hihi = {monster.x, monster.y, w, h};
-    return hihi;
 }
 
 TTF_Font* Common::loadFont(const char* path, int size)

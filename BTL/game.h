@@ -1,22 +1,31 @@
 #pragma once
-#include "defs.h"
+#include "move.h"
+#include "collision.h"
+#include "sound.h"
+#include "common.h"
 
-class Monster
+class Game
 {
 public:
-    Monster();
+    Game();
 
-    ~Monster();
+    ~Game();
 
-    void setMonster(SDL_Texture *_texture);
+    void initGame();
 
-    void moveMonster();
+    void playGame();
 
-    void randMonster();
-
-    SDL_Texture *texture;
-
-    int x, y;
+    void closeGame();
 
 private:
+    Common* common = NULL;
+
+    Sound* sound = NULL;
+
+    Sprite* bird = NULL;
+
+    Sprite* ragnarok = NULL;
+
+    Move* mouse = NULL;
+
 };
