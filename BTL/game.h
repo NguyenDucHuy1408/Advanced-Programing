@@ -20,12 +20,17 @@ public:
 private:
     Common* common = NULL;
 
+    ScrollingBackground* background = NULL;
+
     Sound* sound = NULL;
 
     Sprite* bird = NULL;
 
-    Sprite* ragnarok = NULL;
+    Sprite ragnarok;
+
+    SDL_Texture* ragnarokTexture;
 
     Move* mouse = NULL;
 
+    TTF_Font* font;
 };

@@ -2,33 +2,44 @@
 
 Menu::Menu()
 {
-    sech = new Game();
-    menuBg = Common::loadTexture(MENU_FILE);
+    game = new Game();
 }
 
 Menu::~Menu()
 {
-    delete sech;
+    delete game;
+    game = NULL;
+
     SDL_DestroyTexture(menuBg);
+    menuBg = NULL;
+}
+
+void Menu::init()
+{
+    game -> initGame();
+
+    menuBg = Common::loadTexture(MENU_FILE);
+
+    isOpen = true;
 }
 
 void Menu::handleEvent()
 {
-    while (SDL_PollEvent(&e))
-    {
+    while (SDL_PollEvent(&e)) {
         if (e.type == SDL_KEYDOWN || e.type == SDL_MOUSEBUTTONDOWN)
-        {
-            sech->playGame();
-            SDL_Delay(100);
-        }
+            game -> playGame();
+
         if (e.type == SDL_QUIT)
-        {
             isOpen = false;
-        }
+
+        SDL_Delay(100);
     }
 }
 
-void Menu::Update() {}
+void Menu::Update()
+{
+
+}
 
 void Menu::Render()
 {
@@ -36,7 +47,15 @@ void Menu::Render()
     Common::presentScene();
 }
 
-bool Menu::Open() const { return isOpen; }
+void Menu::close()
+{
+    game -> closeGame();
+}
+
+bool Menu::Open() const
+{
+    return isOpen;
+}
 
 void Menu::randColor()
 {

@@ -15,12 +15,15 @@ void waitUntilKeyPressed()
 int main(int argc, char *argv[])
 {
     srand(time(0));
-    Menu* sech = new Menu();
 
-    while (sech->Open())
-    {
-        sech->handleEvent();
-        sech->Render();
+    Menu* menu = new Menu();
+    menu -> init();
+
+    while (menu -> Open()) {
+        menu -> handleEvent();
+        menu -> Render();
     }
+
+    delete menu;
     return 0;
 }

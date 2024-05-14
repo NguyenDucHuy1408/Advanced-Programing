@@ -1,21 +1,21 @@
 # depslib dependency file v1.0
-1713668008 source:d:\it\ltnc\btl\common.cpp
+1715659938 source:d:\it\ltnc\btl\common.cpp
 	"common.h"
 
-1713668008 d:\it\ltnc\btl\common.h
+1715656144 d:\it\ltnc\btl\common.h
 	"defs.h"
+	"sprite.h"
+	"map.h"
 
-1713668862 d:\it\ltnc\btl\defs.h
-	<iostream>
+1715656144 d:\it\ltnc\btl\defs.h
+	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
+	<SDL_mixer.h>
+	<SDL_ttf.h>
 
-1713842770 source:d:\it\ltnc\btl\main.cpp
-	"CommonFunc.h"
-	"PlayerObject.h"
-	"ImpTimer.h"
-	"BlockObject.h"
-	"Geometric.h"
+1715661040 source:d:\it\ltnc\btl\main.cpp
+	"menu.h"
 
 1713842847 source:d:\it\ltnc\btl\baseobject.cpp
 	"BaseObject.h"
@@ -176,4 +176,49 @@
 
 1715593854 d:\codeblocks\ltnc\advanced-programing\btl\menu.h
 	"game.h"
+
+1715656144 d:\it\ltnc\btl\sprite.h
+	"defs.h"
+
+1715656144 d:\it\ltnc\btl\map.h
+	"defs.h"
+
+1715661040 source:d:\it\ltnc\btl\game.cpp
+	"game.h"
+
+1715659078 d:\it\ltnc\btl\game.h
+	"move.h"
+	"collision.h"
+	"sound.h"
+	"common.h"
+
+1715656144 d:\it\ltnc\btl\move.h
+	"defs.h"
+
+1715658553 d:\it\ltnc\btl\collision.h
+	"defs.h"
+
+1715656144 d:\it\ltnc\btl\sound.h
+	"defs.h"
+
+1715661040 d:\it\ltnc\btl\menu.h
+	"game.h"
+
+1715656144 source:d:\it\ltnc\btl\map.cpp
+	"map.h"
+
+1715656144 source:d:\it\ltnc\btl\menu.cpp
+	"menu.h"
+
+1715656144 source:d:\it\ltnc\btl\move.cpp
+	"move.h"
+
+1715656144 source:d:\it\ltnc\btl\sound.cpp
+	"sound.h"
+
+1715656144 source:d:\it\ltnc\btl\sprite.cpp
+	"sprite.h"
+
+1715656144 source:d:\it\ltnc\btl\collision.cpp
+	"collision.h"
 

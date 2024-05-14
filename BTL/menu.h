@@ -7,11 +7,15 @@ public:
 
     ~Menu();
 
+    void init();
+
     void handleEvent();
 
     void Update();
 
     void Render();
+
+    void close();
 
     void randColor();
 
@@ -20,10 +24,11 @@ public:
     bool Open() const;
 
 private:
-    Game* sech = nullptr;
+    Game* game = NULL;
 
-    SDL_Texture* menuBg = nullptr;
+    SDL_Texture* menuBg = NULL;
 
-    bool isOpen = true;
+    bool isOpen;
+
     SDL_Event e;
 };

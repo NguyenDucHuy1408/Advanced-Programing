@@ -8,7 +8,7 @@ public:
 
     ~Collision();
 
-    bool inside(int x, int y, SDL_Rect r);
+    static bool inside(int x, int y, SDL_Rect r);
 
     static bool isOverLap(SDL_Rect r1, SDL_Rect r2);
 
