@@ -36,7 +36,7 @@ void Move::turnNorth()
 
 void Move::turnSouth()
 {
-    if(y >= SCREEN_HEIGHT - 150) return;
+    if(y >= SCREEN_HEIGHT - 300) return;
 
     dx = 0;
     dy = speed;
@@ -44,7 +44,7 @@ void Move::turnSouth()
 
 void Move::turnEast()
 {
-    if(x >= SCREEN_WIDTH - 100) return;
+    if(x >= SCREEN_WIDTH - 200) return;
 
     dx = speed;
     dy = 0;
@@ -60,7 +60,7 @@ void Move::turnWest()
 
 void Move::checkEvent()
 {
-     const Uint8 *currentKeyStates = SDL_GetKeyboardState(NULL);
+    currentKeyStates = SDL_GetKeyboardState(NULL);
 
     if(currentKeyStates[SDL_SCANCODE_UP]) turnNorth();
     if(currentKeyStates[SDL_SCANCODE_DOWN]) turnSouth();

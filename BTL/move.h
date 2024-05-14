@@ -27,5 +27,8 @@ public:
     int x, y;
 private:
     int dx, dy;
+
     int speed;
+
+    const Uint8 *currentKeyStates = NULL;
 };

@@ -29,7 +29,7 @@ void Menu::handleEvent()
         if (e.type == SDL_KEYDOWN || e.type == SDL_MOUSEBUTTONDOWN)
             game -> playGame();
 
-        if (e.type == SDL_QUIT)
+        if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
             isOpen = false;
 
         SDL_Delay(100);

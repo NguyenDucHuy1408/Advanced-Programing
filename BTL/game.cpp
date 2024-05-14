@@ -60,7 +60,7 @@ void Game::playGame()
 
     Uint32 time = SDL_GetTicks();
     int cnt = 0;
-    Uint32 time2 = 500;
+    Uint32 time2 = 1000;
     while(!quit) {
         common -> prepareScene(NULL);
 
@@ -70,7 +70,7 @@ void Game::playGame()
         common -> renderScrollingBackground(*background);
 
         while (SDL_PollEvent(&e) != 0)
-            if (e.type == SDL_QUIT)
+            if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
                 quit = true;
 
         mouse -> checkEvent();
@@ -83,7 +83,6 @@ void Game::playGame()
         for (size_t i = 0; i < dq.size(); i++) {
             SDL_Rect mst = common -> renderSprite(dq[i].x, dq[i].y, dq[i]);
             SDL_Rect mst2 = {mst.x + 10, mst.y + 28, 40, 35};
-            //
             dq[i].tick();
             if (Collision::isOverLap(player, mst2)) {
                 Mix_PauseMusic();

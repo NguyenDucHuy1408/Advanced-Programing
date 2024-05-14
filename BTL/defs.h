@@ -10,15 +10,15 @@ using namespace std;
 #define WINDOW_TITLE "Game cua Huy"
 #define MENU_FILE "img/menu.png"
 #define BIRD_SPRITE_FILE "img/bird_sprite.png"
-#define RAGNAROK_SPRITE_FILE "img/ragnarok_sprite.jpg"
+#define RAGNAROK_SPRITE_FILE "img/ragnarok_sprite.png"
 #define BACKGROUND_FILE "img/bg.png"
 #define MONSTER_FILE "img/Du_long.png"
 #define NHACNEN_FILE "sound/nhac_nen.mp3"
 #define NHACENDGAME_FILE "sound/nhac_endgame3.wav"
 #define FONT_FILE "text/text.ttf"
-#define SCROLL_BACKGROUND 2
-#define SPEED_BIRD 5
-#define SPEED_MONSTER 5
+#define SCROLL_BACKGROUND 5
+#define SPEED_BIRD 10
+#define SPEED_MONSTER 8
 
 const int SCREEN_WIDTH = 1920;
 const int SCREEN_HEIGHT = 1080;
