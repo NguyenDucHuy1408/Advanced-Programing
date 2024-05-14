@@ -58,9 +58,9 @@ void Game::playGame()
     deque<Sprite> dq = {ragnarok};
     deque<SDL_Rect> dpr;
 
-    int time = SDL_GetTicks();
+    Uint32 time = SDL_GetTicks();
     int cnt = 0;
-    int time2 = 500;
+    Uint32 time2 = 500;
     while(!quit) {
         common -> prepareScene(NULL);
 

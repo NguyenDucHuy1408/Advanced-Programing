@@ -24,7 +24,7 @@ void Common::init()
     if(SDL_Init(SDL_INIT_EVERYTHING))
         logErrorAndExit("SDL_Init", SDL_GetError());
 
-    window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
+    window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP);
     if(window == nullptr)
         logErrorAndExit("CreateWindow", SDL_GetError());
 
@@ -146,6 +146,8 @@ SDL_Texture* Common::fontTexture(const char* text, TTF_Font* font, SDL_Color tex
 void Common::quit()
 {
     IMG_Quit();
+    Mix_Quit();
+    TTF_Quit();
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);

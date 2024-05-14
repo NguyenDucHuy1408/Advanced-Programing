@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1715659938 source:d:\it\ltnc\btl\common.cpp
+1715670280 source:d:\it\ltnc\btl\common.cpp
 	"common.h"
 
 1715656144 d:\it\ltnc\btl\common.h
@@ -7,7 +7,7 @@
 	"sprite.h"
 	"map.h"
 
-1715656144 d:\it\ltnc\btl\defs.h
+1715671384 d:\it\ltnc\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -183,7 +183,7 @@
 1715656144 d:\it\ltnc\btl\map.h
 	"defs.h"
 
-1715661040 source:d:\it\ltnc\btl\game.cpp
+1715664105 source:d:\it\ltnc\btl\game.cpp
 	"game.h"
 
 1715659078 d:\it\ltnc\btl\game.h
@@ -207,7 +207,7 @@
 1715656144 source:d:\it\ltnc\btl\map.cpp
 	"map.h"
 
-1715656144 source:d:\it\ltnc\btl\menu.cpp
+1715661108 source:d:\it\ltnc\btl\menu.cpp
 	"menu.h"
 
 1715656144 source:d:\it\ltnc\btl\move.cpp

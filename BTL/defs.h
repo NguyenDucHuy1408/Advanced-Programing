@@ -10,8 +10,8 @@ using namespace std;
 #define WINDOW_TITLE "Game cua Huy"
 #define MENU_FILE "img/menu.png"
 #define BIRD_SPRITE_FILE "img/bird_sprite.png"
-#define RAGNAROK_SPRITE_FILE "img/ragnarok_sprite.png"
-#define BACKGROUND_FILE "img/forest.jpg"
+#define RAGNAROK_SPRITE_FILE "img/ragnarok_sprite.jpg"
+#define BACKGROUND_FILE "img/bg.png"
 #define MONSTER_FILE "img/Du_long.png"
 #define NHACNEN_FILE "sound/nhac_nen.mp3"
 #define NHACENDGAME_FILE "sound/nhac_endgame3.wav"
@@ -20,26 +20,26 @@ using namespace std;
 #define SPEED_BIRD 5
 #define SPEED_MONSTER 5
 
-const int SCREEN_WIDTH = 800;
-const int SCREEN_HEIGHT = 540;
+const int SCREEN_WIDTH = 1920;
+const int SCREEN_HEIGHT = 1080;
 
 const int BIRD_CLIPS[][4] = {
-    {0, 0, 90, 90},
-    {91, 0, 90, 90},
-    {182, 0, 90, 90},
-    {273, 0, 90, 90},
-    {364, 0, 90, 90},
+    {0, 0, 182, 168},
+    {181, 0, 182, 168},
+    {364, 0, 182, 168},
+    {547, 0, 182, 168},
+    {728, 0, 182, 168},
 
-    {0, 80, 90, 90},
-    {91, 80, 90, 90},
-    {182, 80, 90, 90},
-    {273, 80, 90, 90},
-    {364, 80, 90, 90},
+    {0, 170, 182, 168},
+    {181, 170, 182, 168},
+    {364, 170, 182, 168},
+    {547, 170, 182, 168},
+    {728, 170, 182, 168},
 
-    {0, 170, 90, 90},
-    {91, 170, 90, 90},
-    {182, 170, 90, 90},
-    {273, 170, 90, 90},
+    {0, 340, 182, 168},
+    {181, 340, 182, 168},
+    {364, 340, 182, 168},
+    {547, 340, 182, 168},
 };
 const int BIRD_FRAMES = sizeof(BIRD_CLIPS) / sizeof(int) / 4;
 /*
@@ -52,13 +52,13 @@ const vector<vector<SDL_Rect>> COLLIDERS_BIRD = {
 
 
 const int RAGNAROK_CLIPS[][4] = {
-    {3, 5, 65, 70}, {3, 5, 65, 70},
-    {65, 5, 65, 70}, {65, 5, 65, 70},
-    {127, 5, 65, 70}, {127, 5, 65, 70},
-    {206, -7, 65, 70}, {206, -7, 65, 70},
-    {270, -7, 65, 70}, {270, -7, 65, 70},
-    {336, -7, 65, 70}, {336, -7, 65, 70},
-    {401, -7, 65, 70}, {401, -7, 65, 70},
-    {454, 5, 65, 70}, {454, 5, 65, 70},
+    {10, 8, 121, 154}, {10, 8, 121, 154},
+    {134, 8, 121, 154}, {134, 8, 121, 154},
+    {258, 8, 121, 154}, {258, 8, 121, 154},
+    {416, 0, 121, 154}, {416, 0, 121, 154},
+    {544, 0, 121, 154}, {544, 0, 121, 154},
+    {676, 0, 121, 154}, {676, 0, 121, 154},
+    {807, 0, 121, 154}, {807, 0, 121, 154},
+    {913, 8, 121, 154}, {913, 8, 121, 154},
 };
 const int RAGNAROK_FRAMES = sizeof(RAGNAROK_CLIPS) / sizeof(int) / 4;
