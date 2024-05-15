@@ -4,28 +4,24 @@
 class Sprite
 {
 public:
-    Sprite();
+    Sprite(const char* file, int frames, int speed);
 
     ~Sprite();
 
-    void init(SDL_Texture *_texture, int frames, const int _clips[][4]);
+    void update();
 
-    void tick();
+    void render();
 
-    const SDL_Rect *getCurrentClip() const;
+    SDL_Rect* getRect();
 
-    void randMonster();
+    void setScale(double scale);
 
-    void moveMonster();
+    SDL_Rect dstRect;
 
-    SDL_Texture *texture;
+protected:
+    SDL_Rect srcRect;
 
-    int x, y;
+    SDL_Texture* texture;
 
-private:
-    vector<SDL_Rect> clips;
-
-    int currentFrame;
-
-    int mPosX, mPosY;
+    int frames, speed;
 };

@@ -120,35 +120,36 @@
 1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
 	"TextObject.h"
 
-1715672899 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+1715763035 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
-1715671577 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+1715760792 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"move.h"
 	"collision.h"
 	"sound.h"
 	"common.h"
 
-1715671577 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
+1715762690 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
-1715594663 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+1715757094 d:\codeblocks\ltnc\advanced-programing\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
 
-1715672502 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1715764077 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1715428448 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
+1715760991 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
 	"defs.h"
 
-1715672312 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+1715764775 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
 	"sprite.h"
+	"common.h"
 
 1714018495 d:\codeblocks\ltnc\advanced-programing\btl\map.h
 	"defs.h"
@@ -156,11 +157,12 @@
 1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
 	"map.h"
 
-1715590909 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+1715764775 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
 	"move.h"
 
-1715704729 d:\codeblocks\ltnc\advanced-programing\btl\move.h
+1715760929 d:\codeblocks\ltnc\advanced-programing\btl\move.h
 	"defs.h"
+	"sprite.h"
 
 1715671577 d:\codeblocks\ltnc\advanced-programing\btl\collision.h
 	"defs.h"

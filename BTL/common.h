@@ -18,15 +18,13 @@ public:
 
     static void renderTexture(SDL_Texture *texture, int x, int y);
 
-    static void renderTexture(SDL_Texture* texture);
+    static void renderTexture(SDL_Texture* texture, SDL_Rect* src = nullptr, SDL_Rect* dst = nullptr);
 
     void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
 
     void prepareScene(SDL_Texture *background);
 
     static void presentScene();
-
-    SDL_Rect renderSprite(int x, int y, const Sprite &sprite);
 
     void renderScrollingBackground(const ScrollingBackground &background);
 

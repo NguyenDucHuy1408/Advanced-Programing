@@ -1,5 +1,6 @@
 #pragma once
 #include "defs.h"
+#include "sprite.h"
 
 class Move
 {
@@ -30,5 +31,7 @@ private:
 
     int speed;
 
-    const Uint8 *currentKeyStates = NULL;
+    const Uint8 *currentKeyStates = nullptr;
+
+    Sprite* hero = nullptr;
 };

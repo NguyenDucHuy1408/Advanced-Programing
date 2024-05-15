@@ -1,11 +1,21 @@
 #include "sprite.h"
+#include "common.h"
 
-Sprite::Sprite()
+Sprite::Sprite(const char* file, int frames, int speed)
 {
-    texture = NULL;
-    currentFrame = 0;
-    x = SCREEN_WIDTH;
-    y = rand() % (SCREEN_HEIGHT - 300);
+    texture = Common::loadTexture(file);
+
+    this->frames = frames;
+    this->speed = speed;
+
+    SDL_QueryTexture(texture, NULL, NULL, &srcRect.w, &srcRect.h);
+
+    srcRect.w /= frames;
+
+    dstRect.w = srcRect.w;
+    dstRect.h = srcRect.h;
+
+    srcRect.x = srcRect.y = 0;
 }
 
 Sprite::~Sprite()
@@ -13,37 +23,24 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(SDL_Texture* _texture, int frames, const int _clips[][4])
+void Sprite::update()
 {
-    texture = _texture;
-
-    SDL_Rect clip;
-    for(int i = 0; i < frames; i++) {
-        clip.x = _clips[i][0];
-        clip.y = _clips[i][1];
-        clip.w = _clips[i][2];
-        clip.h = _clips[i][3];
-        clips.push_back(clip);
-    }
+    srcRect.x = srcRect.w * (int)((SDL_GetTicks() / speed) % frames);
 }
 
-void Sprite::tick()
+void Sprite::render()
 {
-    currentFrame = (currentFrame + 1) % clips.size();
+    Common::renderTexture(texture, &srcRect, &dstRect);
 }
 
-const SDL_Rect *Sprite::getCurrentClip() const
+SDL_Rect* Sprite::getRect()
 {
-    return &(clips[currentFrame]);
+    return &dstRect;
 }
 
-void Sprite::randMonster()
+void Sprite::setScale(double scale)
 {
-    x = SCREEN_WIDTH;
-    y = rand() % (SCREEN_HEIGHT - 300);
-}
+    dstRect.w *= scale;
 
-void Sprite::moveMonster()
-{
-    x -= SPEED_MONSTER;
+    dstRect.h *= scale;
 }

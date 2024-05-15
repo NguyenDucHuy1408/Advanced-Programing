@@ -7,14 +7,6 @@ Game::Game()
     background = new ScrollingBackground();
 
     sound = new Sound();
-
-    bird = new Sprite();
-
-    mouse = new Move();
-
-    ragnarokTexture = NULL;
-
-    font = NULL;
 }
 
 Game::~Game()
@@ -22,30 +14,24 @@ Game::~Game()
     delete common;
     delete background;
     delete sound;
-    delete bird;
     delete mouse;
 
-    SDL_DestroyTexture(ragnarokTexture);
+    //SDL_DestroyTexture();
     closeGame();
 }
 
 void Game::initGame()
 {
-    common -> init();
+    common->init();
 
-    background -> setTexture(common -> loadTexture(BACKGROUND_FILE));
+    background->setTexture(common->loadTexture(BACKGROUND_FILE));
 
-    sound -> loadMusic(NHACNEN_FILE);
-    sound -> loadChunk(NHACENDGAME_FILE);
-
-    bird -> init(common -> loadTexture(BIRD_SPRITE_FILE),
-              BIRD_FRAMES, BIRD_CLIPS);
-
-    ragnarokTexture = common -> loadTexture(RAGNAROK_SPRITE_FILE);
-    ragnarok.init(ragnarokTexture,
-                  RAGNAROK_FRAMES, RAGNAROK_CLIPS);
+    sound->loadMusic(NHACNEN_FILE);
+    sound->loadChunk(NHACENDGAME_FILE);
 
     font = common -> loadFont(FONT_FILE, 20);
+
+    mouse = new Move();
 }
 
 void Game::playGame()
@@ -55,52 +41,44 @@ void Game::playGame()
     bool quit = false;
     SDL_Event e;
 
-    deque<Sprite> dq = {ragnarok};
-    deque<SDL_Rect> dpr;
-
-    Uint32 time = SDL_GetTicks();
-    int cnt = 0;
-    Uint32 time2 = 1000;
     while(!quit) {
-        common -> prepareScene(NULL);
-
-        mouse -> update();
-
-        background -> scroll(SCROLL_BACKGROUND);
-        common -> renderScrollingBackground(*background);
-
         while (SDL_PollEvent(&e) != 0)
             if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
                 quit = true;
 
-        mouse -> checkEvent();
+        common->prepareScene(nullptr);
 
-        bird -> tick();
-        SDL_Rect birdRect = common -> renderSprite(mouse -> x, mouse -> y, *bird);
-        SDL_Rect player = {birdRect.x + 30, birdRect.y + 30, 40, 40};
-        mouse -> move();
+        background->scroll(SCROLL_BACKGROUND);
+        common->renderScrollingBackground(*background);
 
-        for (size_t i = 0; i < dq.size(); i++) {
-            SDL_Rect mst = common -> renderSprite(dq[i].x, dq[i].y, dq[i]);
-            SDL_Rect mst2 = {mst.x + 10, mst.y + 28, 40, 35};
-            dq[i].tick();
-            if (Collision::isOverLap(player, mst2)) {
+        mouse->update();
+        mouse->checkEvent();
+        mouse->move();
+
+        common->presentScene();
+        /*
+        for (size_t i = 0; i < dq.size(); i++)
+        {
+            dq[i]->Update();
+
+            if (SDL_HasIntersection(&birdRect, dq[i]->getRect()))
+            {
                 Mix_PauseMusic();
                 sound -> playChunk();
                 SDL_Delay(500);
                 quit = true;
+                std::cerr << "Ows ows.\n";
             }
-            dq[i].moveMonster();
+
+            dq[i]->Render();
         }
 
         if (SDL_GetTicks() - time >= time2) {
             time = SDL_GetTicks();
-            Sprite hihi;
-            hihi.init(ragnarokTexture, RAGNAROK_FRAMES, RAGNAROK_CLIPS);
-            dq.push_back(hihi);
+            dq.push_back(new Sprite(HERO_RUN_FILE, 12, 100));
         }
 
-        if (dq[0].x <= -100) {
+        if (dq[0]->getRect()->x <= -100) {
             dq.pop_front();
             cnt++;
             time2--;
@@ -116,7 +94,7 @@ void Game::playGame()
 
         common -> presentScene();
 
-        SDL_Delay(20);
+        SDL_Delay(20);*/
     }
 }
 

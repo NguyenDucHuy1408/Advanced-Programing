@@ -44,6 +44,8 @@
 		<Unit filename="map.h" />
 		<Unit filename="menu.cpp" />
 		<Unit filename="menu.h" />
+		<Unit filename="monster.cpp" />
+		<Unit filename="monster.h" />
 		<Unit filename="move.cpp" />
 		<Unit filename="move.h" />
 		<Unit filename="sound.cpp" />

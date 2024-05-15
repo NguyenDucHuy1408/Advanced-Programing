@@ -4,8 +4,8 @@ SDL_Renderer* Common::renderer = nullptr;
 
 Common::Common()
 {
-    window = NULL;
-    renderer = NULL;
+    window = nullptr;
+    renderer = nullptr;
 }
 
 Common::~Common()
@@ -24,7 +24,8 @@ void Common::init()
     if(SDL_Init(SDL_INIT_EVERYTHING))
         logErrorAndExit("SDL_Init", SDL_GetError());
 
-    window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_FULLSCREEN_DESKTOP);
+    window = SDL_CreateWindow(WINDOW_TITLE, SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,
+                              SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
     if(window == nullptr)
         logErrorAndExit("CreateWindow", SDL_GetError());
 
@@ -52,11 +53,13 @@ void Common::init()
 
 SDL_Texture *Common::loadTexture(const char *file)
 {
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading img: %s", file);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO,
+                   "Loading img: %s", file);
 
     SDL_Texture *texture = IMG_LoadTexture(renderer, file);
     if(texture == nullptr)
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Load texture %s", IMG_GetError());
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR,
+                       "Load texture %s", IMG_GetError());
 
     return texture;
 }
@@ -66,14 +69,15 @@ void Common::renderTexture(SDL_Texture *texture, int x, int y)
     SDL_Rect dest;
     dest.x = x;
     dest.y = y;
-    SDL_QueryTexture(texture, NULL, NULL, &dest.w, &dest.h);
 
-    SDL_RenderCopy(renderer, texture, NULL, &dest);
+    SDL_QueryTexture(texture, nullptr, nullptr, &dest.w, &dest.h);
+
+    SDL_RenderCopy(renderer, texture, nullptr, &dest);
 }
 
-void Common::renderTexture(SDL_Texture *texture)
+void Common::renderTexture(SDL_Texture* texture, SDL_Rect *src, SDL_Rect *dst)
 {
-    SDL_RenderCopy(renderer, texture, NULL, NULL);
+    SDL_RenderCopy(renderer, texture, src, dst);
 }
 
 void Common::blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y)
@@ -93,20 +97,12 @@ void Common::prepareScene(SDL_Texture *background)
     SDL_RenderClear(renderer);
 
     if(background != nullptr)
-        SDL_RenderCopy(renderer, background, NULL, NULL);
+        SDL_RenderCopy(renderer, background, nullptr, nullptr);
 }
 
 void Common::presentScene()
 {
     SDL_RenderPresent(renderer);
-}
-
-SDL_Rect Common::renderSprite(int x, int y, const Sprite &sprite)
-{
-    const SDL_Rect *clip = sprite.getCurrentClip();
-    SDL_Rect renderQuad = {x, y, clip -> w, clip -> h};
-    SDL_RenderCopy(renderer, sprite.texture, clip, &renderQuad);
-    return renderQuad;
 }
 
 void Common::renderScrollingBackground(const ScrollingBackground &background)
@@ -117,28 +113,32 @@ void Common::renderScrollingBackground(const ScrollingBackground &background)
 
 TTF_Font* Common::loadFont(const char* path, int size)
 {
-    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO, "Loading font: %s", path);
+    SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO,
+                   "Loading font: %s", path);
 
     TTF_Font* font = TTF_OpenFont(path, size);
-    if(font == NULL)
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Could not open: %s", TTF_GetError());
+    if(font == nullptr)
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR,
+                       "Could not open: %s", TTF_GetError());
 
     return font;
 }
 
 SDL_Texture* Common::fontTexture(const char* text, TTF_Font* font, SDL_Color textColor)
 {
-    if(font == NULL) return NULL;
+    if(font == nullptr) return nullptr;
 
     SDL_Surface* textSurface = TTF_RenderText_Solid(font, text, textColor);
-    if(textSurface == NULL) {
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Surface error: %s", TTF_GetError());
-        return NULL;
+    if(textSurface == nullptr) {
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR,
+                       "Surface error: %s", TTF_GetError());
+        return nullptr;
     }
 
     SDL_Texture* texture = SDL_CreateTextureFromSurface(renderer, textSurface);
-    if(texture == NULL)
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "Texture error: %s", SDL_GetError());
+    if(texture == nullptr)
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR,
+                       "Texture error: %s", SDL_GetError());
 
     return texture;
 }
@@ -151,8 +151,8 @@ void Common::quit()
 
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    window = NULL;
-    renderer = NULL;
+    window = nullptr;
+    renderer = nullptr;
 
     SDL_Quit();
 }

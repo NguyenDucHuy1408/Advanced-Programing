@@ -3,21 +3,27 @@
 Move::Move()
 {
     x = 100;
-    y = SCREEN_HEIGHT / 2 - 100;
+    y = SCREEN_HEIGHT - 96;
     dx = 0;
     dy = 0;
-    speed = SPEED_BIRD;
+    speed = SPEED_HERO;
+    hero = new Sprite(HERO_RUN_FILE, 12, 100);
+    hero->setScale(2.0);
 }
 
 Move::~Move()
 {
-
+    delete hero;
 }
 
 void Move::update()
 {
     dx = 0;
     dy = 0;
+    hero->dstRect.x = x;
+    hero->dstRect.y = y;
+    hero->update();
+    hero->render();
 }
 
 void Move::move()
@@ -36,7 +42,7 @@ void Move::turnNorth()
 
 void Move::turnSouth()
 {
-    if(y >= SCREEN_HEIGHT - 300) return;
+    if(y >= SCREEN_HEIGHT - hero->dstRect.h) return;
 
     dx = 0;
     dy = speed;
@@ -44,7 +50,7 @@ void Move::turnSouth()
 
 void Move::turnEast()
 {
-    if(x >= SCREEN_WIDTH - 200) return;
+    if(x >= SCREEN_WIDTH - hero->dstRect.w) return;
 
     dx = speed;
     dy = 0;

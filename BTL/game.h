@@ -18,19 +18,13 @@ public:
     void closeGame();
 
 private:
-    Common* common = NULL;
+    Common* common = nullptr;
 
-    ScrollingBackground* background = NULL;
+    ScrollingBackground* background = nullptr;
 
-    Sound* sound = NULL;
+    Sound* sound = nullptr;
 
-    Sprite* bird = NULL;
+    Move* mouse = nullptr;
 
-    Sprite ragnarok;
-
-    SDL_Texture* ragnarokTexture;
-
-    Move* mouse = NULL;
-
-    TTF_Font* font;
+    TTF_Font* font = nullptr;
 };
