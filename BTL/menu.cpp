@@ -36,12 +36,12 @@ void Menu::handleEvent()
     }
 }
 
-void Menu::Update()
+void Menu::update()
 {
 
 }
 
-void Menu::Render()
+void Menu::render()
 {
     Common::renderTexture(menuBg);
     Common::presentScene();

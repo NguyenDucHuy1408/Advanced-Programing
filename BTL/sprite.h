@@ -6,9 +6,9 @@ class Sprite
 public:
     Sprite();
 
-    Sprite(const char* file, int frames, int speed);
-
     ~Sprite();
+
+    void init(const char* file, int frames, int speed);
 
     void update();
 

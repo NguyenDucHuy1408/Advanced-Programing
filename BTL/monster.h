@@ -1,4 +1,4 @@
-#pragma once
+/*#pragma once
 #include "sprite.h"
 
 class Monster : public Sprite
@@ -10,3 +10,4 @@ public:
 private:
 
 };
+*/

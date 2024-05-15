@@ -6,7 +6,12 @@ Sprite::Sprite()
 
 }
 
-Sprite::Sprite(const char* file, int frames, int speed)
+Sprite::~Sprite()
+{
+
+}
+
+void init(const char* file, int frames, int speed)
 {
     texture = Common::loadTexture(file);
 
@@ -21,11 +26,6 @@ Sprite::Sprite(const char* file, int frames, int speed)
     dstRect.h = srcRect.h;
 
     srcRect.x = srcRect.y = 0;
-}
-
-Sprite::~Sprite()
-{
-
 }
 
 void Sprite::update()

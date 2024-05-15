@@ -11,9 +11,9 @@ public:
 
     void handleEvent();
 
-    void Update();
+    void update();
 
-    void Render();
+    void render();
 
     void close();
 

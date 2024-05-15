@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     while (menu -> Open()) {
         menu -> handleEvent();
-        menu -> Render();
+        menu -> render();
     }
 
     delete menu;

@@ -11,10 +11,17 @@ Game::Game()
 
 Game::~Game()
 {
-    delete common;
-    delete background;
-    delete sound;
     delete hero;
+    hero = nullptr;
+
+    delete background;
+    background = nullptr;
+
+    delete sound;
+    sound = nullptr;
+
+    //delete common;
+    //common = nullptr;
 
     //SDL_DestroyTexture();
     closeGame();
@@ -32,6 +39,7 @@ void Game::initGame()
     font = common -> loadFont(FONT_FILE, 20);
 
     hero = new Move();
+    hero->init();
 }
 
 void Game::playGame()
@@ -51,8 +59,9 @@ void Game::playGame()
         background->scroll(SCROLL_BACKGROUND);
         common->renderScrollingBackground(*background);
 
-        hero->update();
         hero->render();
+        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s", SDL_GetError());
+        hero->update();
         hero->handleEvent();
         hero->move();
 
