@@ -7,14 +7,18 @@
 #include <SDL_ttf.h>
 using namespace std;
 
-#define WINDOW_TITLE "Game cua Huy"
+#define WINDOW_TITLE "HUY'S ADVENTURE"
 
 #define MENU_FILE "img/menu.png"
 #define BACKGROUND_FILE "img/bg.png"
 
-#define HERO_RUN_FILE "img/hero_run.png"
+#define HERO_RUN_FILE "img/gothic-hero-run.png"
 
-#define NHACNEN_FILE "sound/nhac_nen.mp3"
+#define DEMON_FLY_FILE "img/demon-idle.png"
+#define DEMON_ATTACK_FILE "img/demon-attack.png"
+
+#define NHACNEN_FILE "sound/nhac_play.mp3"
+#define NHACMENU_FILE "sound/nhac_menu.mp3"
 #define NHACENDGAME_FILE "sound/nhac_endgame3.wav"
 
 #define FONT_FILE "text/text.ttf"

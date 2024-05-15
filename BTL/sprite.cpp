@@ -11,7 +11,7 @@ Sprite::~Sprite()
 
 }
 
-void init(const char* file, int frames, int speed)
+void Sprite::init(const char* file, int frames, int speed)
 {
     texture = Common::loadTexture(file);
 
@@ -41,11 +41,4 @@ void Sprite::render()
 SDL_Rect* Sprite::getRect()
 {
     return &dstRect;
-}
-
-void Sprite::setScale(double scale)
-{
-    dstRect.w *= scale;
-
-    dstRect.h *= scale;
 }

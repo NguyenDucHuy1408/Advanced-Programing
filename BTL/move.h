@@ -9,10 +9,12 @@ public:
 
     ~Move();
 
-    void handleEvent();
+    void initHero();
+
+    void handleEvent(SDL_Event e);
 
     void move();
+
 private:
-    SDL_Event e;
     int vx, vy;
 };

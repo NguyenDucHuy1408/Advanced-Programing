@@ -4,6 +4,10 @@ Game::Game()
 {
     common = new Common();
 
+    hero = new Move();
+
+    demon = new Monster();
+
     background = new ScrollingBackground();
 
     sound = new Sound();
@@ -20,6 +24,14 @@ Game::~Game()
     delete sound;
     sound = nullptr;
 
+    Mix_FreeMusic(soundtrack);
+    soundtrack = nullptr;
+    Mix_FreeMusic(menuMusic);
+    menuMusic = nullptr;
+
+    Mix_FreeChunk(chunk);
+    chunk = nullptr;
+
     //delete common;
     //common = nullptr;
 
@@ -31,28 +43,37 @@ void Game::initGame()
 {
     common->init();
 
-    background->setTexture(common->loadTexture(BACKGROUND_FILE));
+    menuMusic = sound->loadMusic(NHACMENU_FILE);
+    soundtrack = sound->loadMusic(NHACNEN_FILE);
+    chunk = sound->loadChunk(NHACENDGAME_FILE);
 
-    sound->loadMusic(NHACNEN_FILE);
-    sound->loadChunk(NHACENDGAME_FILE);
+    background->setTexture(common->loadTexture(BACKGROUND_FILE));
 
     font = common -> loadFont(FONT_FILE, 20);
 
-    hero = new Move();
-    hero->init();
+    hero->init(HERO_RUN_FILE, 12, 100);
+    hero->initHero();
+
+    demon->init(DEMON_ATTACK_FILE, 11, 100);
+    demon->initMonster(2, 7);
 }
 
 void Game::playGame()
 {
-    sound -> playMusic();
+    sound->playMusic(soundtrack);
 
     bool quit = false;
     SDL_Event e;
 
     while(!quit) {
-        while (SDL_PollEvent(&e) != 0)
-            if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
+        while (SDL_PollEvent(&e) != 0) {
+            if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE) {
                 quit = true;
+                Mix_PauseMusic();
+                sound->playMusic(menuMusic);
+            }
+            hero->handleEvent(e);
+        }
 
         common->prepareScene(nullptr);
 
@@ -60,11 +81,12 @@ void Game::playGame()
         common->renderScrollingBackground(*background);
 
         hero->render();
-        SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_ERROR, "%s", SDL_GetError());
         hero->update();
-        hero->handleEvent();
         hero->move();
 
+        demon->render();
+        demon->update();
+        demon->moveMonster();
 
         common->presentScene();
         /*

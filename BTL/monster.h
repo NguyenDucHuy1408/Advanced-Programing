@@ -1,13 +1,20 @@
-/*#pragma once
+#pragma once
 #include "sprite.h"
 
 class Monster : public Sprite
 {
 public:
+    Monster();
 
-    std::vector<SDL_Texture*> States;
+    ~Monster();
 
+    void initMonster(int skills, int prepare);
+
+    void moveMonster();
+
+    bool checkDistance(SDL_Rect r);
+
+    std::vector<SDL_Texture*> states;
 private:
-
+    int current, skills, prepare;
 };
-*/

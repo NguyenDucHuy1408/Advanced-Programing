@@ -8,10 +8,10 @@ Menu::Menu()
 Menu::~Menu()
 {
     delete game;
-    game = NULL;
+    game = nullptr;
 
     SDL_DestroyTexture(menuBg);
-    menuBg = NULL;
+    menuBg = nullptr;
 }
 
 void Menu::init()
@@ -27,7 +27,7 @@ void Menu::handleEvent()
 {
     while (SDL_PollEvent(&e)) {
         if (e.type == SDL_KEYDOWN || e.type == SDL_MOUSEBUTTONDOWN)
-            game -> playGame();
+            game->playGame();
 
         if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE)
             isOpen = false;

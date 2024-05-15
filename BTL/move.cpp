@@ -2,8 +2,7 @@
 
 Move::Move()
 {
-    vx = vy = 0;
-    setScale(2.0);
+
 }
 
 Move::~Move()
@@ -11,7 +10,14 @@ Move::~Move()
 
 }
 
-void Move::handleEvent()
+void Move::initHero()
+{
+    dstRect.x = 100;
+    dstRect.y = SCREEN_HEIGHT - dstRect.w;
+    vx = vy = 0;
+}
+
+void Move::handleEvent(SDL_Event e)
 {
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {

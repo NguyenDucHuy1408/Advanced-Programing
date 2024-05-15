@@ -17,11 +17,11 @@ int main(int argc, char *argv[])
     srand(time(0));
 
     Menu* menu = new Menu();
-    menu -> init();
+    menu->init();
 
     while (menu -> Open()) {
-        menu -> handleEvent();
-        menu -> render();
+        menu->handleEvent();
+        menu->render();
     }
 
     delete menu;

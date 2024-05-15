@@ -16,8 +16,6 @@ public:
 
     SDL_Rect* getRect();
 
-    void setScale(double scale);
-
 protected:
     SDL_Rect dstRect, srcRect;
 
