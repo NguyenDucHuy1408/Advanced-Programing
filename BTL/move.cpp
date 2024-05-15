@@ -2,74 +2,42 @@
 
 Move::Move()
 {
-    x = 100;
-    y = SCREEN_HEIGHT - 96;
-    dx = 0;
-    dy = 0;
-    speed = SPEED_HERO;
-    hero = new Sprite(HERO_RUN_FILE, 12, 100);
-    hero->setScale(2.0);
+    vx = vy = 0;
+    setScale(2.0);
 }
 
 Move::~Move()
 {
-    delete hero;
+
 }
 
-void Move::update()
+void Move::handleEvent()
 {
-    dx = 0;
-    dy = 0;
-    hero->dstRect.x = x;
-    hero->dstRect.y = y;
-    hero->update();
-    hero->render();
+    if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
+        switch (e.key.keysym.sym) {
+            case SDLK_UP: vy -= SPEED_HERO; break;
+            case SDLK_DOWN: vy += SPEED_HERO; break;
+            case SDLK_LEFT: vx -= SPEED_HERO; break;
+            case SDLK_RIGHT: vx += SPEED_HERO; break;
+        }
+    }
+    else if (e.type == SDL_KEYUP && e.key.repeat == 0) {
+        switch (e.key.keysym.sym) {
+            case SDLK_UP: vy += SPEED_HERO; break;
+            case SDLK_DOWN: vy -= SPEED_HERO; break;
+            case SDLK_LEFT: vx += SPEED_HERO; break;
+            case SDLK_RIGHT: vx -= SPEED_HERO; break;
+        }
+    }
 }
 
 void Move::move()
 {
-    x += dx;
-    y += dy;
-}
+    dstRect.x += vx;
+    if (dstRect.x < 0 || dstRect.x + dstRect.w > SCREEN_WIDTH)
+        dstRect.x -= vx;
 
-void Move::turnNorth()
-{
-    if(y <= 0) return;
-
-    dx = 0;
-    dy = -speed;
-}
-
-void Move::turnSouth()
-{
-    if(y >= SCREEN_HEIGHT - hero->dstRect.h) return;
-
-    dx = 0;
-    dy = speed;
-}
-
-void Move::turnEast()
-{
-    if(x >= SCREEN_WIDTH - hero->dstRect.w) return;
-
-    dx = speed;
-    dy = 0;
-}
-
-void Move::turnWest()
-{
-    if(x <= 0) return;
-
-    dx = -speed;
-    dy = 0;
-}
-
-void Move::checkEvent()
-{
-    currentKeyStates = SDL_GetKeyboardState(NULL);
-
-    if(currentKeyStates[SDL_SCANCODE_UP]) turnNorth();
-    if(currentKeyStates[SDL_SCANCODE_DOWN]) turnSouth();
-    if(currentKeyStates[SDL_SCANCODE_LEFT]) turnWest();
-    if(currentKeyStates[SDL_SCANCODE_RIGHT]) turnEast();
+    dstRect.y += vy;
+    if (dstRect.y < 0 || dstRect.y + dstRect.h > SCREEN_HEIGHT)
+        dstRect.y -= vy;
 }

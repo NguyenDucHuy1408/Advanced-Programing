@@ -24,7 +24,7 @@ private:
 
     Sound* sound = nullptr;
 
-    Move* mouse = nullptr;
+    Move* hero = nullptr;
 
     TTF_Font* font = nullptr;
 };

@@ -1,6 +1,11 @@
 #include "sprite.h"
 #include "common.h"
 
+Sprite::Sprite()
+{
+
+}
+
 Sprite::Sprite(const char* file, int frames, int speed)
 {
     texture = Common::loadTexture(file);

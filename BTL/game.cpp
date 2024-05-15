@@ -14,7 +14,7 @@ Game::~Game()
     delete common;
     delete background;
     delete sound;
-    delete mouse;
+    delete hero;
 
     //SDL_DestroyTexture();
     closeGame();
@@ -31,7 +31,7 @@ void Game::initGame()
 
     font = common -> loadFont(FONT_FILE, 20);
 
-    mouse = new Move();
+    hero = new Move();
 }
 
 void Game::playGame()
@@ -51,9 +51,11 @@ void Game::playGame()
         background->scroll(SCROLL_BACKGROUND);
         common->renderScrollingBackground(*background);
 
-        mouse->update();
-        mouse->checkEvent();
-        mouse->move();
+        hero->update();
+        hero->render();
+        hero->handleEvent();
+        hero->move();
+
 
         common->presentScene();
         /*

@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1715670280 source:d:\it\ltnc\btl\common.cpp
+1715773258 source:d:\it\ltnc\btl\common.cpp
 	"common.h"
 
-1715656144 d:\it\ltnc\btl\common.h
+1715773258 d:\it\ltnc\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
 
-1715671384 d:\it\ltnc\btl\defs.h
+1715773258 d:\it\ltnc\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -179,23 +179,24 @@
 1715671577 d:\codeblocks\ltnc\advanced-programing\btl\menu.h
 	"game.h"
 
-1715656144 d:\it\ltnc\btl\sprite.h
+1715775741 d:\it\ltnc\btl\sprite.h
 	"defs.h"
 
 1715656144 d:\it\ltnc\btl\map.h
 	"defs.h"
 
-1715664105 source:d:\it\ltnc\btl\game.cpp
+1715775588 source:d:\it\ltnc\btl\game.cpp
 	"game.h"
 
-1715659078 d:\it\ltnc\btl\game.h
+1715775441 d:\it\ltnc\btl\game.h
 	"move.h"
 	"collision.h"
 	"sound.h"
 	"common.h"
 
-1715656144 d:\it\ltnc\btl\move.h
+1715775588 d:\it\ltnc\btl\move.h
 	"defs.h"
+	"sprite.h"
 
 1715658553 d:\it\ltnc\btl\collision.h
 	"defs.h"
@@ -209,21 +210,24 @@
 1715656144 source:d:\it\ltnc\btl\map.cpp
 	"map.h"
 
-1715661108 source:d:\it\ltnc\btl\menu.cpp
+1715773258 source:d:\it\ltnc\btl\menu.cpp
 	"menu.h"
 
-1715656144 source:d:\it\ltnc\btl\move.cpp
+1715775300 source:d:\it\ltnc\btl\move.cpp
 	"move.h"
 
 1715656144 source:d:\it\ltnc\btl\sound.cpp
 	"sound.h"
 
-1715656144 source:d:\it\ltnc\btl\sprite.cpp
+1715775741 source:d:\it\ltnc\btl\sprite.cpp
 	"sprite.h"
+	"common.h"
 
 1715656144 source:d:\it\ltnc\btl\collision.cpp
 	"collision.h"
 
 1715596180 source:d:\codeblocks\ltnc\advanced-programing\btl\collision.cpp
 	"collision.h"
+
+1715773258 source:d:\it\ltnc\btl\monster.cpp
 

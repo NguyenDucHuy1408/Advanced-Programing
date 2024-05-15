@@ -4,6 +4,8 @@
 class Sprite
 {
 public:
+    Sprite();
+
     Sprite(const char* file, int frames, int speed);
 
     ~Sprite();
@@ -16,10 +18,8 @@ public:
 
     void setScale(double scale);
 
-    SDL_Rect dstRect;
-
 protected:
-    SDL_Rect srcRect;
+    SDL_Rect dstRect, srcRect;
 
     SDL_Texture* texture;
 

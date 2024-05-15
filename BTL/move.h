@@ -2,36 +2,17 @@
 #include "defs.h"
 #include "sprite.h"
 
-class Move
+class Move : public Sprite
 {
 public:
     Move();
 
     ~Move();
 
+    void handleEvent();
+
     void move();
-
-    void update();
-
-    void turnNorth();
-
-    void turnSouth();
-
-    void turnWest();
-
-    void turnEast();
-
-    void checkEvent();
-
-    bool corner();
-
-    int x, y;
 private:
-    int dx, dy;
-
-    int speed;
-
-    const Uint8 *currentKeyStates = nullptr;
-
-    Sprite* hero = nullptr;
+    SDL_Event e;
+    int vx, vy;
 };
