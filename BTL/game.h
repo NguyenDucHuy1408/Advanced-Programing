@@ -18,6 +18,12 @@ public:
 
     void closeGame();
 
+    static SDL_Texture* textureHeroRun;
+    static SDL_Texture* textureHeroJumpAttack;
+
+    static SDL_Texture* textureDemonFly;
+    static SDL_Texture* textureDemonAttack;
+
 private:
     Common* common = nullptr;
 

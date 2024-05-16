@@ -1,5 +1,12 @@
 #include "game.h"
 
+SDL_Texture* Game::textureHeroRun = nullptr;
+SDL_Texture* Game::textureHeroJumpAttack = nullptr;
+
+SDL_Texture* Game::textureDemonFly = nullptr;
+SDL_Texture* Game::textureDemonAttack = nullptr;
+
+
 Game::Game()
 {
     common = new Common();
@@ -41,8 +48,6 @@ Game::~Game()
 
 void Game::initGame()
 {
-    common->init();
-
     menuMusic = sound->loadMusic(NHACMENU_FILE);
     soundtrack = sound->loadMusic(NHACNEN_FILE);
     chunk = sound->loadChunk(NHACENDGAME_FILE);
@@ -51,11 +56,17 @@ void Game::initGame()
 
     font = common -> loadFont(FONT_FILE, 20);
 
-    hero->init(HERO_RUN_FILE, 12, 100);
+    textureHeroRun = Common::loadTexture(HERO_RUN_FILE);
+    textureHeroJumpAttack = Common::loadTexture(HERO_JUMP_ATTACK_FILE);
+
+    textureDemonFly = Common::loadTexture(DEMON_FLY_FILE);
+    textureDemonAttack = Common::loadTexture(DEMON_ATTACK_FILE);
+
+    hero->init(textureHeroRun, 12, 100);
     hero->initHero();
 
-    demon->init(DEMON_ATTACK_FILE, 11, 100);
-    demon->initMonster(2, 7);
+    demon->init(textureDemonFly, 6, 100);
+    demon->initMonster(15);
 }
 
 void Game::playGame()
@@ -65,6 +76,9 @@ void Game::playGame()
     bool quit = false;
     SDL_Event e;
 
+    Uint32 time = SDL_GetTicks();
+    Uint32 time2 = 2000;
+    deque<Monster*> dq = {demon};
     while(!quit) {
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT || e.key.keysym.sym == SDLK_ESCAPE) {
@@ -84,38 +98,47 @@ void Game::playGame()
         hero->update();
         hero->move();
 
-        demon->render();
-        demon->update();
-        demon->moveMonster();
+        for (size_t i = 0; i < dq.size(); i++) {
+            dq[i]->render();
+            dq[i]->update();
+            dq[i]->moveMonster();
 
-        common->presentScene();
-        /*
-        for (size_t i = 0; i < dq.size(); i++)
-        {
-            dq[i]->Update();
-
-            if (SDL_HasIntersection(&birdRect, dq[i]->getRect()))
-            {
+            //SDL_Rect
+            /*if (SDL_HasIntersection(&hero->dstRect, &dq[i]->dstRect)) {
                 Mix_PauseMusic();
-                sound -> playChunk();
-                SDL_Delay(500);
+                sound->playChunk(chunk);
+                SDL_Delay(1000);
                 quit = true;
-                std::cerr << "Ows ows.\n";
-            }
+            }*/
 
-            dq[i]->Render();
+            if (hero->srcRect.x == hero->w && !hero->check) {
+                hero->check = true;
+                hero->init(textureHeroRun, 12, 100);
+            }
+            if (dq[i]->checkDistance(hero->dstRect) && dq[i]->check) {
+                dq[i]->check = false;
+                dq[i]->init(textureDemonAttack, 11, 100);
+            }
+            if (dq[i]->srcRect.x == dq[i]->w && !dq[i]->check) {
+                dq[i]->check = true;
+                dq[i]->init(textureDemonFly, 6, 100);
+            }
         }
 
         if (SDL_GetTicks() - time >= time2) {
             time = SDL_GetTicks();
-            dq.push_back(new Sprite(HERO_RUN_FILE, 12, 100));
+            Monster* hihi = new Monster();
+            hihi->init(textureDemonFly, 6, 100);
+            hihi->initMonster(15);
+            dq.push_back(hihi);
         }
 
-        if (dq[0]->getRect()->x <= -100) {
+        if (dq[0]->dstRect.x <= -150) {
             dq.pop_front();
-            cnt++;
             time2--;
         }
+
+        common->presentScene();
 
 //        menu.randColor();
 //        SDL_Color color = {menu.r, menu.g, menu.b, 0};
@@ -124,10 +147,6 @@ void Game::playGame()
 //        const char* s = str.c_str();
 //        SDL_Texture* score = common.fontTexture(s, font, color);
 //        common.renderTexture(score, 10, 10);
-
-        common -> presentScene();
-
-        SDL_Delay(20);*/
     }
 }
 

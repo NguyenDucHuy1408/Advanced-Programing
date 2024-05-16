@@ -3,7 +3,7 @@
 
 Sprite::Sprite()
 {
-
+    check = true;
 }
 
 Sprite::~Sprite()
@@ -11,34 +11,31 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(const char* file, int frames, int speed)
+void Sprite::init(SDL_Texture* texture, int frames, int speed)
 {
-    texture = Common::loadTexture(file);
-
     this->frames = frames;
     this->speed = speed;
+    this->texture = texture;
 
     SDL_QueryTexture(texture, NULL, NULL, &srcRect.w, &srcRect.h);
 
+    w = srcRect.w * (frames - 1) / frames;
     srcRect.w /= frames;
 
     dstRect.w = srcRect.w;
     dstRect.h = srcRect.h;
+    dstRect.y = SCREEN_HEIGHT - dstRect.h;
 
     srcRect.x = srcRect.y = 0;
+    currentTime = SDL_GetTicks();
 }
 
 void Sprite::update()
 {
-    srcRect.x = srcRect.w * (int)((SDL_GetTicks() / speed) % frames);
+    srcRect.x = srcRect.w * (int)(((SDL_GetTicks() - currentTime) / speed) % frames);
 }
 
 void Sprite::render()
 {
     Common::renderTexture(texture, &srcRect, &dstRect);
-}
-
-SDL_Rect* Sprite::getRect()
-{
-    return &dstRect;
 }

@@ -13,6 +13,7 @@ using namespace std;
 #define BACKGROUND_FILE "img/bg.png"
 
 #define HERO_RUN_FILE "img/gothic-hero-run.png"
+#define HERO_JUMP_ATTACK_FILE "img/gothic-hero-jump-attack.png"
 
 #define DEMON_FLY_FILE "img/demon-idle.png"
 #define DEMON_ATTACK_FILE "img/demon-attack.png"
@@ -26,6 +27,6 @@ using namespace std;
 const int SCREEN_WIDTH = 1536;
 const int SCREEN_HEIGHT = 672;
 
-const int SCROLL_BACKGROUND = 3;
-const int SPEED_HERO = 8;
-const int SPEED_MONSTER = 8;
+const int SCROLL_BACKGROUND = 2;
+const int SPEED_HERO = 5;
+const int SPEED_MONSTER = 5;

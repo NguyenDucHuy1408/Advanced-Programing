@@ -2,6 +2,11 @@
 #include "defs.h"
 #include "sprite.h"
 
+enum CharacterState {
+    RUNNING,
+    ATTACKING
+};
+
 class Move : public Sprite
 {
 public:
@@ -17,4 +22,8 @@ public:
 
 private:
     int vx, vy;
+
+    CharacterState state;
+
+    Uint32 attackStartTime;
 };
