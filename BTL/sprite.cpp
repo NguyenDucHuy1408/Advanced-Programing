@@ -17,7 +17,7 @@ void Sprite::init(SDL_Texture* texture, int frames, int speed)
     this->speed = speed;
     this->texture = texture;
 
-    SDL_QueryTexture(texture, NULL, NULL, &srcRect.w, &srcRect.h);
+    SDL_QueryTexture(texture, nullptr, nullptr, &srcRect.w, &srcRect.h);
 
     w = srcRect.w * (frames - 1) / frames;
     srcRect.w /= frames;

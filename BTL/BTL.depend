@@ -108,7 +108,7 @@
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
 
-1715821544 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+1715922357 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
 	"menu.h"
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\playerobject.h
@@ -120,10 +120,10 @@
 1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
 	"TextObject.h"
 
-1715852900 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+1715924854 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
-1715852680 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+1715923918 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"move.h"
 	"collision.h"
 	"sound.h"
@@ -133,12 +133,12 @@
 1715852579 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
-1715757094 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+1715919556 d:\codeblocks\ltnc\advanced-programing\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
 
-1715849698 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1715923918 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -148,7 +148,7 @@
 1715853220 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
 	"defs.h"
 
-1715852680 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+1715919420 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
 	"sprite.h"
 	"common.h"
 
@@ -158,7 +158,7 @@
 1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
 	"map.h"
 
-1715848694 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+1715922690 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
 	"move.h"
 	"game.h"
 
@@ -175,10 +175,10 @@
 1715821544 source:d:\codeblocks\ltnc\advanced-programing\btl\sound.cpp
 	"sound.h"
 
-1715821544 source:d:\codeblocks\ltnc\advanced-programing\btl\menu.cpp
+1715919511 source:d:\codeblocks\ltnc\advanced-programing\btl\menu.cpp
 	"menu.h"
 
-1715777933 d:\codeblocks\ltnc\advanced-programing\btl\menu.h
+1715919420 d:\codeblocks\ltnc\advanced-programing\btl\menu.h
 	"game.h"
 
 1715799676 d:\it\ltnc\btl\sprite.h

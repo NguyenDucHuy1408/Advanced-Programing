@@ -22,16 +22,21 @@ void Move::handleEvent(SDL_Event e)
 {
     if (e.type == SDL_KEYDOWN && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {
-            case SDLK_UP: init(Game::textureHeroJumpAttack, 6, 100); check = false; break;
+            case SDLK_SPACE: init(Game::textureHeroJumpAttack, 6, 100); check = false; break;
             case SDLK_LEFT: vx -= SPEED_HERO; break;
             case SDLK_RIGHT: vx += SPEED_HERO; break;
+            case SDLK_p: {
+                Game::renderMenu();
+                break;
+            }
         }
     }
     else if (e.type == SDL_KEYUP && e.key.repeat == 0) {
         switch (e.key.keysym.sym) {
-            case SDLK_UP: init(Game::textureHeroJumpAttack, 6, 100); check = false; break;
+            case SDLK_SPACE: init(Game::textureHeroJumpAttack, 6, 100); check = false; break;
             case SDLK_LEFT: vx += SPEED_HERO; break;
             case SDLK_RIGHT: vx -= SPEED_HERO; break;
+            case SDLK_p: Game::renderMenu(); break;
         }
     }
 }

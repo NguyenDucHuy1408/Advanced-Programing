@@ -17,16 +17,12 @@ public:
 
     void close();
 
-    void randColor();
-
-    int r, g, b;
-
     bool Open() const;
 
 private:
-    Game* game = NULL;
+    Game* game = nullptr;
 
-    SDL_Texture* menuBg = NULL;
+    SDL_Texture* menuBg = nullptr;
 
     bool isOpen;
 
