@@ -8,13 +8,12 @@ public:
 
     ~Monster();
 
-    void initMonster(int skills, int prepare);
+    void initMonster(int prepare);
 
     void moveMonster();
 
     bool checkDistance(SDL_Rect r);
 
-    std::vector<SDL_Texture*> states;
 private:
-    int current, skills, prepare;
+    int prepare;
 };

@@ -6,6 +6,7 @@ Common::Common()
 {
     window = nullptr;
     renderer = nullptr;
+    init();
 }
 
 Common::~Common()
@@ -51,7 +52,7 @@ void Common::init()
         logErrorAndExit("SDL_ttf could not initialize! SDL_ttf Error: ", TTF_GetError());
 }
 
-SDL_Texture *Common::loadTexture(const char *file)
+SDL_Texture* Common::loadTexture(const char *file)
 {
     SDL_LogMessage(SDL_LOG_CATEGORY_APPLICATION, SDL_LOG_PRIORITY_INFO,
                    "Loading img: %s", file);

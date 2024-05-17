@@ -8,18 +8,22 @@ public:
 
     ~Sprite();
 
-    void init(const char* file, int frames, int speed);
+    void init(SDL_Texture* texture, int frames, int speed);
 
     void update();
 
     void render();
 
-    SDL_Rect* getRect();
+    int w;
 
-protected:
+    bool check;
+
     SDL_Rect dstRect, srcRect;
 
+protected:
     SDL_Texture* texture;
 
     int frames, speed;
+
+    int currentTime;
 };
