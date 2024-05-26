@@ -39,6 +39,7 @@
 		<Unit filename="defs.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
+		<Unit filename="highscore.txt" />
 		<Unit filename="main.cpp" />
 		<Unit filename="map.cpp" />
 		<Unit filename="map.h" />
@@ -48,6 +49,8 @@
 		<Unit filename="monster.h" />
 		<Unit filename="move.cpp" />
 		<Unit filename="move.h" />
+		<Unit filename="savescore.cpp" />
+		<Unit filename="savescore.h" />
 		<Unit filename="sound.cpp" />
 		<Unit filename="sound.h" />
 		<Unit filename="sprite.cpp" />

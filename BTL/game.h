@@ -4,6 +4,7 @@
 #include "sound.h"
 #include "common.h"
 #include "monster.h"
+#include "savescore.h"
 
 class Game
 {
@@ -50,4 +51,8 @@ private:
     TTF_Font* font = nullptr;
 
     int distance;
+
+    int highscore;
+
+    Save* save = nullptr;
 };

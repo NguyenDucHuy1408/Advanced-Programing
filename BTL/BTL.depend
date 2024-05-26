@@ -108,7 +108,7 @@
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\imptimer.h
 
-1715922357 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
+1716700539 source:d:\codeblocks\ltnc\advanced-programing\btl\main.cpp
 	"menu.h"
 
 1713857780 d:\codeblocks\ltnc\advanced-programing\btl\playerobject.h
@@ -120,15 +120,16 @@
 1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
 	"TextObject.h"
 
-1715968384 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+1716705496 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
-1715923918 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+1716705547 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"move.h"
 	"collision.h"
 	"sound.h"
 	"common.h"
 	"monster.h"
+	"savescore.h"
 
 1715852579 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
@@ -138,7 +139,7 @@
 	"sprite.h"
 	"map.h"
 
-1715923918 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1716705263 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
@@ -244,4 +245,10 @@
 
 1715847883 d:\codeblocks\ltnc\advanced-programing\btl\monster.h
 	"sprite.h"
+
+1716705267 d:\codeblocks\ltnc\advanced-programing\btl\savescore.h
+	"defs.h"
+
+1716705147 source:d:\codeblocks\ltnc\advanced-programing\btl\savescore.cpp
+	"savescore.h"
 

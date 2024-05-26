@@ -28,6 +28,8 @@ using namespace std;
 
 #define FONT_FILE "text/text.ttf"
 
+#define HIGHSCORE_FILE "highscore.txt"
+
 const int SCREEN_WIDTH = 1536;
 const int SCREEN_HEIGHT = 672;
 

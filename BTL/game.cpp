@@ -19,6 +19,8 @@ Game::Game()
     background = new ScrollingBackground();
 
     sound = new Sound();
+
+    save = new Save();
 }
 
 Game::~Game()
@@ -98,10 +100,13 @@ void Game::playGame()
     SDL_Event e;
 
     Uint32 time = SDL_GetTicks();
-    Uint32 time2 = 2000;
+    Uint32 time2 = 1500;
 
     distance = 0;
+    highscore = save->readFile();
+
     SDL_Color color = {255, 255, 255, 0};
+
     string str = "YOUR SCORE: ";
     str += to_string(distance);
     const char* s = str.c_str();
@@ -136,21 +141,33 @@ void Game::playGame()
             SDL_Rect r1 = {hero->dstRect.x, hero->dstRect.y, hero->dstRect.w - 60, hero->dstRect.h};
             SDL_Rect r2 = {dq[i]->dstRect.x + 110, dq[i]->dstRect.y, dq[i]->dstRect.w - 110, dq[i]->dstRect.h};
             if (Collision::isOverLap(r1, r2)) {
-                if (hero->check && !demon->check) {
-                common->renderTexture(gameover, SCREEN_WIDTH / 2 - 270, SCREEN_HEIGHT / 2 - 270);
+                if (hero->check && !dq[i]->check) {
+                    highscore = max (highscore, distance);
+                    save->writeFile(highscore);
+                    string str2 = "HIGHSCORE: ";
+                    str2 += to_string(highscore);
+                    const char* s2 = str2.c_str();
+                    SDL_Texture* highscore_tex = common->fontTexture(s2, font, color);
 
-                common->renderTexture(score, SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 270 + 350);
+                    common->renderTexture(gameover, SCREEN_WIDTH / 2 - 270, SCREEN_HEIGHT / 2 - 270);
 
-                common->presentScene();
+                    common->renderTexture(score, SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 270 + 350);
 
-                Mix_PauseMusic();
-                sound->playChunk(endgame);
-                SDL_Delay(3000);
-                quit = true;
+                    common->renderTexture(highscore_tex, SCREEN_WIDTH / 2 - 150, SCREEN_HEIGHT / 2 - 270 + 500);
+
+                    common->presentScene();
+
+                    Mix_PauseMusic();
+                    sound->playChunk(endgame);
+                    SDL_Delay(3000);
+                    quit = true;
                 }
                 else {
                     sound->playChunk(killmonster);
                     dq.pop_front();
+                    i--;
+                    if (i >= dq.size())
+                        break;
                 }
             }
 
@@ -175,6 +192,7 @@ void Game::playGame()
             hihi->initMonster(15);
             dq.push_back(hihi);
         }
+
         str = "YOUR SCORE: ";
         str += to_string(distance);
         const char* s = str.c_str();
