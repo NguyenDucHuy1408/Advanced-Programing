@@ -135,7 +135,7 @@ void Game::playGame()
 
             SDL_Rect r1 = {hero->dstRect.x, hero->dstRect.y, hero->dstRect.w - 60, hero->dstRect.h};
             SDL_Rect r2 = {dq[i]->dstRect.x + 110, dq[i]->dstRect.y, dq[i]->dstRect.w - 110, dq[i]->dstRect.h};
-            if (SDL_HasIntersection(&r1, &r2)) {
+            if (Collision::isOverLap(r1, r2)) {
                 if (hero->check && !demon->check) {
                 common->renderTexture(gameover, SCREEN_WIDTH / 2 - 270, SCREEN_HEIGHT / 2 - 270);
 
