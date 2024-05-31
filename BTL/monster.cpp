@@ -2,7 +2,14 @@
 
 Monster::Monster()
 {
-
+    dstRect.x = SCREEN_WIDTH;
+    state = rand() % 2;
+    if (state == 0)
+        hpMonster = HP_DEMON;
+    else if (state == 1)
+        hpMonster = HP_SKULL;
+    prepare = 15;
+    currentHpMonster = hpMonster;
 }
 
 Monster::~Monster()
@@ -10,11 +17,14 @@ Monster::~Monster()
 
 }
 
-void Monster::initMonster(int prepare)
+void Monster::initMonster()
 {
-    this->prepare = prepare;
     dstRect.x = SCREEN_WIDTH;
-    dstRect.y = SCREEN_HEIGHT - dstRect.h;
+    if (state == 0)
+        hpMonster = HP_DEMON;
+    else if (state == 1)
+        hpMonster = HP_SKULL;
+    currentHpMonster = hpMonster;
 }
 
 void Monster::moveMonster()

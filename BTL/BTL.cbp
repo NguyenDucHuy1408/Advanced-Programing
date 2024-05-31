@@ -32,6 +32,8 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="boss.cpp" />
+		<Unit filename="boss.h" />
 		<Unit filename="collision.cpp" />
 		<Unit filename="collision.h" />
 		<Unit filename="common.cpp" />

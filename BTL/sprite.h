@@ -1,5 +1,6 @@
 #pragma once
 #include "defs.h"
+#include "common.h"
 
 class Sprite
 {
@@ -8,7 +9,7 @@ public:
 
     ~Sprite();
 
-    void init(SDL_Texture* texture, int frames, int speed);
+    void init(SDL_Texture* texture, int frames, int speed, int h);
 
     void update();
 

@@ -120,36 +120,38 @@
 1713857781 source:d:\codeblocks\ltnc\advanced-programing\btl\textobject.cpp
 	"TextObject.h"
 
-1716705496 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
+1717137024 source:d:\codeblocks\ltnc\advanced-programing\btl\game.cpp
 	"game.h"
 
-1716705547 d:\codeblocks\ltnc\advanced-programing\btl\game.h
+1717146460 d:\codeblocks\ltnc\advanced-programing\btl\game.h
 	"move.h"
 	"collision.h"
 	"sound.h"
 	"common.h"
 	"monster.h"
 	"savescore.h"
+	"boss.h"
 
-1715852579 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
+1717123814 source:d:\codeblocks\ltnc\advanced-programing\btl\common.cpp
 	"common.h"
 
-1715919556 d:\codeblocks\ltnc\advanced-programing\btl\common.h
+1717123357 d:\codeblocks\ltnc\advanced-programing\btl\common.h
 	"defs.h"
 	"sprite.h"
 	"map.h"
 
-1716705263 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
+1717146221 d:\codeblocks\ltnc\advanced-programing\btl\defs.h
 	<bits/stdc++.h>
 	<SDL.h>
 	<SDL_image.h>
 	<SDL_mixer.h>
 	<SDL_ttf.h>
 
-1715853220 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
+1717130213 d:\codeblocks\ltnc\advanced-programing\btl\sprite.h
 	"defs.h"
+	"common.h"
 
-1715919420 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
+1717084255 source:d:\codeblocks\ltnc\advanced-programing\btl\sprite.cpp
 	"sprite.h"
 	"common.h"
 
@@ -159,7 +161,7 @@
 1714018495 source:d:\codeblocks\ltnc\advanced-programing\btl\map.cpp
 	"map.h"
 
-1715922690 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
+1717084071 source:d:\codeblocks\ltnc\advanced-programing\btl\move.cpp
 	"move.h"
 	"game.h"
 
@@ -237,13 +239,13 @@
 1716698278 source:d:\it\ltnc\btl\monster.cpp
 	"monster.h"
 
-1715852829 source:d:\codeblocks\ltnc\advanced-programing\btl\monster.cpp
+1717088180 source:d:\codeblocks\ltnc\advanced-programing\btl\monster.cpp
 	"monster.h"
 
 1716698278 d:\it\ltnc\btl\monster.h
 	"sprite.h"
 
-1715847883 d:\codeblocks\ltnc\advanced-programing\btl\monster.h
+1717088097 d:\codeblocks\ltnc\advanced-programing\btl\monster.h
 	"sprite.h"
 
 1716705267 d:\codeblocks\ltnc\advanced-programing\btl\savescore.h
@@ -251,4 +253,10 @@
 
 1716705147 source:d:\codeblocks\ltnc\advanced-programing\btl\savescore.cpp
 	"savescore.h"
+
+1717137095 source:d:\codeblocks\ltnc\advanced-programing\btl\boss.cpp
+	"boss.h"
+
+1717136583 d:\codeblocks\ltnc\advanced-programing\btl\boss.h
+	"monster.h"
 

@@ -5,6 +5,7 @@
 #include "common.h"
 #include "monster.h"
 #include "savescore.h"
+#include "boss.h"
 
 class Game
 {
@@ -17,6 +18,8 @@ public:
 
     void playGame();
 
+    void healthBar(int x, int y, int w, int h, int maxHealth, int currentHealth, int r, int g, int b);
+
     static void renderMenu();
 
     void closeGame();
@@ -27,6 +30,9 @@ public:
     static SDL_Texture* textureDemonFly;
     static SDL_Texture* textureDemonAttack;
 
+    static SDL_Texture* textureSkull;
+    static SDL_Texture* textureFireSkull;
+
     static SDL_Texture* mainMenu;
     SDL_Texture* gameover;
 
@@ -34,25 +40,32 @@ public:
 private:
     Common* common = nullptr;
 
-    Sound* sound = nullptr;
+    static Sound* sound;
 
-    Mix_Music* soundtrack = nullptr;
-    Mix_Music* menuMusic = nullptr;
+    static Mix_Music* soundtrack;
+    static Mix_Music* menuMusic;
 
-    Mix_Chunk* killmonster = nullptr;
-    Mix_Chunk* endgame = nullptr;
+    static Mix_Chunk* bleed;
+    static Mix_Chunk* killmonster;
+    static Mix_Chunk* endgame;
 
     ScrollingBackground* background = nullptr;
 
     Move* hero = nullptr;
 
-    Monster* demon = nullptr;
+    Monster* monster = nullptr;
+
+    Boss* boss = nullptr;
 
     TTF_Font* font = nullptr;
+
+    TTF_Font* bigFont = nullptr;
 
     int distance;
 
     int highscore;
 
     Save* save = nullptr;
+
+    static bool checkSound;
 };

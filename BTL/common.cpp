@@ -79,6 +79,7 @@ void Common::renderTexture(SDL_Texture *texture, int x, int y)
 void Common::renderTexture(SDL_Texture* texture, SDL_Rect *src, SDL_Rect *dst)
 {
     SDL_RenderCopy(renderer, texture, src, dst);
+    //SDL_RenderCopyEx(renderer, texture, src, dst, 0, nullptr, SDL_FLIP_HORIZONTAL);
 }
 
 void Common::blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y)

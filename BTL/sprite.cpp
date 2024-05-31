@@ -11,7 +11,7 @@ Sprite::~Sprite()
 
 }
 
-void Sprite::init(SDL_Texture* texture, int frames, int speed)
+void Sprite::init(SDL_Texture* texture, int frames, int speed, int h)
 {
     this->frames = frames;
     this->speed = speed;
@@ -24,7 +24,9 @@ void Sprite::init(SDL_Texture* texture, int frames, int speed)
 
     dstRect.w = srcRect.w;
     dstRect.h = srcRect.h;
-    dstRect.y = SCREEN_HEIGHT - dstRect.h;
+
+    //dstRect.x = SCREEN_WIDTH;
+    dstRect.y = SCREEN_HEIGHT - dstRect.h - h;
 
     srcRect.x = srcRect.y = 0;
     currentTime = SDL_GetTicks();

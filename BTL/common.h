@@ -20,6 +20,8 @@ public:
 
     static void renderTexture(SDL_Texture* texture, SDL_Rect* src = nullptr, SDL_Rect* dst = nullptr);
 
+    //static void renderTexture(SDL_Texture* texture, SDL_Rect* src = nullptr, SDL_Rect* dst = nullptr, )
+
     void blitRect(SDL_Texture *texture, SDL_Rect *src, int x, int y);
 
     void prepareScene(SDL_Texture *background);
