@@ -219,6 +219,7 @@ void Game::playGame()
                         dq.pop_front();
                         i--;
                         boss->hpHero -= 20;
+                        //cout << "mat mau\n";
                     }
                 }
                 else {
@@ -236,7 +237,26 @@ void Game::playGame()
                 hero->check = true;
                 hero->init(textureHeroRun, 12, 100, 0);
             }
-
+            if (dq[i]->state == 0) {
+                if (dq[i]->checkDistance(hero->dstRect) && dq[i]->check) {
+                    dq[i]->check = false;
+                    dq[i]->init(textureDemonAttack, 11, 100, 0);
+                }
+                if (dq[i]->srcRect.x == dq[i]->w && !dq[i]->check) {
+                    dq[i]->check = true;
+                    dq[i]->init(textureDemonFly, 6, 100, 0);
+                }
+            }
+            else if (dq[i]->state == 1) {
+                if (dq[i]->checkDistance(hero->dstRect) && dq[i]->check) {
+                    dq[i]->check = false;
+                    dq[i]->init(textureFireSkull, 8, 100, 50);
+                }
+                if (dq[i]->srcRect.x == dq[i]->w && !dq[i]->check) {
+                    dq[i]->check = true;
+                    dq[i]->init(textureSkull, 4, 100, 50);
+                }
+            }
         }
 
         if (SDL_GetTicks() - time >= time2 && cnt <= 10) {
